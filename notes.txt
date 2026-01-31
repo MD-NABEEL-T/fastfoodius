@@ -1,0 +1,164 @@
+🍔 Fast & Foodious – Feature Breakdown (with Logic)
+1️⃣ Landing Page (Home Page)
+
+What it does:
+Shows a clean intro page with app branding and an “Order Now” button.
+
+How it works:
+Firebase Hosting always loads index.html first, which is designed as the home page and routes users to the student ordering page.
+
+2️⃣ Student Ordering Page
+
+What it does:
+Allows students to browse menu items and select quantities.
+
+How it works:
+Each menu item has + / - buttons that update a numeric input field using JavaScript event listeners.
+
+3️⃣ Category Tabs (Snacks / Juices / Lunch)
+
+What it does:
+Lets users switch between different food categories without reloading the page.
+
+How it works:
+Bootstrap tab components show/hide content sections using data attributes and CSS classes.
+
+4️⃣ Generate Bill Button
+
+What it does:
+Creates a bill summary based on selected items and quantities.
+
+How it works:
+JavaScript loops through all menu items, multiplies price × quantity, and dynamically builds a bill list.
+
+5️⃣ Bill Modal (Popup)
+
+What it does:
+Displays selected items, total price, and confirmation options in a popup.
+
+How it works:
+Bootstrap modal is triggered programmatically after validating that at least one item is selected.
+
+6️⃣ Screenshot Bill Feature
+
+What it does:
+Allows users to download a screenshot of the bill before confirming.
+
+How it works:
+html2canvas converts the modal DOM into an image and triggers a download using a temporary anchor tag.
+
+7️⃣ Confirm Order Button
+
+What it does:
+Finalizes the order and submits it to the database.
+
+How it works:
+Collected bill data is packaged into an object and sent to Firebase Realtime Database.
+
+8️⃣ Atomic Token System
+
+What it does:
+Assigns a unique, increasing token number for every order.
+
+How it works:
+Firebase runTransaction() safely increments a nextToken counter even with multiple users ordering simultaneously.
+
+9️⃣ Realtime Order Storage
+
+What it does:
+Stores every order with items, total, time, token, and status.
+
+How it works:
+Orders are pushed into /orders node in Firebase using push() to generate unique IDs.
+
+🔟 Order Status Tracking
+
+What it does:
+Shows order status as Pending, Prepared, or Served.
+
+How it works:
+Staff actions update the status field in Firebase, which syncs automatically to all clients.
+
+1️⃣1️⃣ My Orders Page (Student)
+
+What it does:
+Displays only the orders placed by the current student.
+
+How it works:
+Student tokens are stored in sessionStorage and matched against Firebase orders in realtime.
+
+1️⃣2️⃣ Session-Based Order Memory
+
+What it does:
+Keeps track of a student’s orders during the current browser session.
+
+How it works:
+Token numbers are saved locally using sessionStorage instead of authentication.
+
+1️⃣3️⃣ Staff Dashboard
+
+What it does:
+Allows staff to view, prepare, serve, or delete orders.
+
+How it works:
+A separate page listens to Firebase /orders node using onValue() for realtime updates.
+
+1️⃣4️⃣ Prepare Order Action
+
+What it does:
+Marks an order as “Prepared”.
+
+How it works:
+Firebase update() modifies only the status field of the selected order.
+
+1️⃣5️⃣ Serve Order Action
+
+What it does:
+Moves an order from active to served history.
+
+How it works:
+Order data is copied to /servedOrders and removed from /orders.
+
+1️⃣6️⃣ Clear Served History
+
+What it does:
+Deletes all served orders at once.
+
+How it works:
+Firebase remove() is called on the /servedOrders node.
+
+1️⃣7️⃣ Realtime Synchronization
+
+What it does:
+Updates student and staff screens instantly without refresh.
+
+How it works:
+Firebase Realtime Database pushes updates to all connected clients automatically.
+
+1️⃣8️⃣ No Authentication (Intentional)
+
+What it does:
+Allows quick testing without login complexity.
+
+How it works:
+Firebase rules are set to allow public read/write during development.
+
+1️⃣9️⃣ Firebase Hosting Deployment
+
+What it does:
+Makes the app live on the internet.
+
+How it works:
+Static files from the public/ folder are uploaded using firebase deploy.
+
+2️⃣0️⃣ SPA Rewrite Handling
+
+What it does:
+Ensures direct URL access works after deployment.
+
+How it works:
+Firebase Hosting rewrites all routes to index.html.
+
+🏁 Summary (One-Liner)
+
+Fast & Foodious is a realtime, token-based canteen ordering system built with HTML, JavaScript, Firebase Realtime Database, and Firebase Hosting, supporting live order tracking without authentication.
