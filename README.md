@@ -4,12 +4,12 @@ Fast & Foodious is a realtime, token-based canteen ordering web application that
 
 ---
 
-## 🚀 Live Demo
+## Tech Demo
 🔗 https://fastfoodius-81742.web.app
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Frontend:** HTML, CSS, JavaScript, Bootstrap  
 - **Backend:** Firebase Realtime Database  
@@ -18,7 +18,7 @@ Fast & Foodious is a realtime, token-based canteen ordering web application that
 
 ---
 
-## ✨ Features & Logic Overview
+## Features & Logic Overview
 
 ### 1️⃣ Landing Page (Home)
 **Feature:**  
@@ -218,3 +218,4 @@ Fast & Foodious is a realtime canteen ordering system built using Firebase that 
 **Mohammed Nabeel T**
 
 ---
+
