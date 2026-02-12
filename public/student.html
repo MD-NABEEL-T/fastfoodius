@@ -39,6 +39,21 @@
         <button id="generateBill" class="btn btn-success mt-3">Generate Bill</button>
       </div>
 
+<!-- Dietary Filter -->
+<div class="text-center mt-4">
+  <label for="dietFilter" class="form-label fw-bold">
+    🥗 Dietary Preference:
+  </label>
+  <select id="dietFilter" class="form-select w-50 mx-auto">
+    <option value="none">No Preference</option>
+    <option value="vegan">Vegan (No Egg / No Non-Veg)</option>
+    <option value="no-dairy">No Lactose</option>
+    <option value="diabetic">Diabetic Friendly</option>
+  </select>
+  <p id="dietStatus" class="text-center mt-2 fw-semibold text-success"></p>
+
+</div>
+
       <!-- Nav Tabs -->
       <ul class="nav nav-tabs justify-content-center mt-4" id="menuTabs" role="tablist">
         <li class="nav-item" role="presentation">
@@ -60,7 +75,7 @@
           <div class="row">
             <div class="col-md-6">
 
-              <div class="single_menu">
+              <div class="single_menu" data-tags="egg,dairy">
                 <img src="images/eggpuff2.jpg" alt="Egg Puff">
                 <div class="menu_content">
                   <h4>Egg Puff <span>₹15</span></h4>
@@ -73,7 +88,7 @@
                 </div>
               </div>
 
-              <div class="single_menu">
+              <div class="single_menu" data-tags="veg">
                 <img src="images/samosa.jpg" alt="Samosa">
                 <div class="menu_content">
                   <h4>Samosa <span>₹15</span></h4>
@@ -86,7 +101,7 @@
                 </div>
               </div>
 
-              <div class="single_menu">
+              <div class="single_menu" data-tags="veg">
                 <img src="images/cutlet.jpg" alt="Cutlet">
                 <div class="menu_content">
                   <h4>Cutlet <span>₹13</span></h4>
@@ -108,9 +123,9 @@
           <div class="row">
             <div class="col-md-6">
 
-              <div class="single_menu">
+              <div class="single_menu" data-tags="high-sugar">
                 <img src="images/bluesoda.jpg" alt="Blue Soda">
-                <div class="menu_content">
+                <div class="menu_content" >
                   <h4>Blue Soda <span>₹12</span></h4>
                   <p>Cool & fizzy with a tangy twist.</p>
                   <button class="minus" type="button" aria-label="Decrease quantity">-</button>
@@ -121,7 +136,7 @@
                 </div>
               </div>
 
-              <div class="single_menu">
+              <div class="single_menu" data-tags="high-sugar">
                 <img src="images/greensoda.jpg" alt="Green Soda">
                 <div class="menu_content">
                   <h4>Green Soda <span>₹12</span></h4>
@@ -134,7 +149,7 @@
                 </div>
               </div>
 
-              <div class="single_menu">
+              <div class="single_menu" data-tags="high-sugar">
                 <img src="images/orangesoda.jpg" alt="Orange Soda">
                 <div class="menu_content">
                   <h4>Orange Soda <span>₹12</span></h4>
@@ -147,7 +162,7 @@
                 </div>
               </div>
 
-              <div class="single_menu">
+              <div class="single_menu" data-tags="high-sugar">
                 <img src="images/mangojuice.jpg" alt="Mango Juice">
                 <div class="menu_content">
                   <h4>Mango Juice <span>₹10</span></h4>
@@ -160,7 +175,7 @@
                 </div>
               </div>
 
-              <div class="single_menu">
+              <div class="single_menu" data-tags="high-sugar">
                 <img src="images/7up.jpg" alt="7 Up">
                 <div class="menu_content">
                   <h4>7 Up <span>₹12</span></h4>
@@ -182,7 +197,7 @@
           <div class="row">
             <div class="col-md-6">
 
-              <div class="single_menu">
+              <div class="single_menu" data-tags="non-veg">
                 <img src="images/friedrice.avif" alt="Fried Rice">
                 <div class="menu_content">
                   <h4>Fried Rice <span>₹50</span></h4>
@@ -195,7 +210,7 @@
                 </div>
               </div>
 
-              <div class="single_menu">
+              <div class="single_menu" data-tags="non-veg">
                 <img src="images/hyderabadibiriyani.jpg" alt="Biriyani">
                 <div class="menu_content">
                   <h4>Biriyani <span>₹60</span></h4>
@@ -208,7 +223,7 @@
                 </div>
               </div>
 
-              <div class="single_menu">
+              <div class="single_menu" data-tags="veg">
                 <img src="images/kushka.jpeg" alt="Kushka">
                 <div class="menu_content">
                   <h4>Kushka <span>₹30</span></h4>

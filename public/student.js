@@ -247,6 +247,60 @@ console.log("🔥 db =", db);
   if (!ordersSection.classList.contains("d-none")) {
     listenForOrdersForSession();
   }
+  // ---- Dietary Filter Logic ----
+  const dietFilter = document.getElementById("dietFilter");
+  const dietStatus = document.getElementById("dietStatus");
+
+  if (dietFilter) {
+    dietFilter.addEventListener("change", () => {
+      const selected = dietFilter.value;
+      const items = document.querySelectorAll(".single_menu");
+
+      items.forEach(item => {
+        const tags = item.dataset.tags ? item.dataset.tags.split(",") : [];
+
+        let hide = false;
+
+        if (selected === "vegan") {
+          if (tags.includes("egg") || tags.includes("non-veg")) {
+            hide = true;
+          }
+        }
+
+        if (selected === "no-dairy") {
+          if (tags.includes("dairy")) {
+            hide = true;
+          }
+        }
+
+        if (selected === "diabetic") {
+          if (tags.includes("high-sugar")) {
+            hide = true;
+          }
+        }
+
+        if (selected === "none") {
+          hide = false;
+        }
+
+        item.style.display = hide ? "none" : "";
+        if (selected === "none") {
+          dietStatus.textContent = "Showing all menu items.";
+        }
+        if (selected === "vegan") {
+          dietStatus.textContent = "Showing Vegan Safe Items (No Egg / No Non-Veg).";
+        }
+        if (selected === "no-dairy") {
+          dietStatus.textContent = "Showing Lactose-Free Items.";
+        }
+        if (selected === "diabetic") {
+          dietStatus.textContent = "Showing Diabetic Friendly (Low Sugar) Items.";
+        }
+
+      });
+    });
+  }
+
 });
 
 // https://console.cloud.google.com/projectselector2/apis/dashboard?supportedpurview=project
