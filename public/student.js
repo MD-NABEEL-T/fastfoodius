@@ -6,7 +6,8 @@ import {
   set,
   onValue,
   runTransaction,
-  get
+  get,
+  update
 } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-database.js";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -201,9 +202,10 @@ const orderObj = {
   total,
   donationAmount: donationAmount,
   supportUsed: supportMode,
-  discountAmount: supportMode ? 30 : 0
+  discountAmount: supportMode ? 30 : 0,
+  paymentMethod: null,
+  paymentStatus: "Unpaid"
 };
-
 
     try {
       const { token } = await createOrderInFirebase(orderObj);
@@ -229,7 +231,17 @@ if (donationCheckbox) {
 }
 
       // notify user
-      alert(`✅ Order placed. Your Token #${token}. Wait for staff to update status.`);
+// Show payment modal instead of alert
+const paymentModalEl = document.getElementById("paymentModal");
+const paymentTokenInfo = document.getElementById("paymentTokenInfo");
+
+if (paymentTokenInfo) {
+  paymentTokenInfo.textContent = `Token #${token} - Select your payment method`;
+}
+
+const paymentModal = new bootstrap.Modal(paymentModalEl);
+paymentModal.show();
+
 
       // start listening for updates for the new token
       listenForOrdersForSession();
@@ -370,6 +382,81 @@ if (donationCheckbox) {
       });
     });
   }
+
+
+  // ---- Payment Handling ----
+const cashOption = document.getElementById("cashOption");
+const upiOption = document.getElementById("upiOption");
+
+let latestToken = null;
+
+// Capture latest token when payment modal opens
+const paymentModalEl = document.getElementById("paymentModal");
+if (paymentModalEl) {
+  paymentModalEl.addEventListener("shown.bs.modal", () => {
+    const tokenText = document.getElementById("paymentTokenInfo")?.textContent;
+    if (tokenText) {
+      const match = tokenText.match(/Token #(\d+)/);
+      if (match) {
+        latestToken = parseInt(match[1]);
+      }
+    }
+  });
+}
+
+// Function to update payment in Firebase
+async function updatePaymentStatus(token, method, status) {
+  const ordersRef = ref(db, "orders");
+
+  onValue(ordersRef, (snapshot) => {
+    const orders = snapshot.val();
+    if (!orders) return;
+
+    for (const key in orders) {
+      if (orders[key].token === token) {
+        update(ref(db, `orders/${key}`), {
+          paymentMethod: method,
+          paymentStatus: status
+        });
+        break;
+      }
+    }
+  }, { onlyOnce: true });
+}
+
+// ---- Cash Option ----
+if (cashOption) {
+  cashOption.addEventListener("click", async () => {
+    if (!latestToken) return;
+
+    await updatePaymentStatus(latestToken, "Cash", "Pending Verification");
+
+    const paymentModal = bootstrap.Modal.getInstance(paymentModalEl);
+    paymentModal.hide();
+
+    alert("Cash selected. Please pay at counter.");
+  });
+}
+
+// ---- UPI Option ----
+if (upiOption) {
+  upiOption.addEventListener("click", async () => {
+    if (!latestToken) return;
+
+    await updatePaymentStatus(latestToken, "UPI", "Unpaid");
+
+    const amountElement = document.getElementById("modalGrandTotal");
+    const amountMatch = amountElement.textContent.match(/₹(\d+)/);
+    const amount = amountMatch ? amountMatch[1] : 0;
+
+    const upiID = "tmdnabeel4656.tmn@oksbi"; // <-- replace with your real UPI ID
+    const name = "FastFoodious";
+
+    const upiLink = `upi://pay?pa=${upiID}&pn=${encodeURIComponent(name)}&am=${amount}&cu=INR&tn=Token-${latestToken}`;
+
+    window.location.href = upiLink;
+  });
+}
 
 });
 
