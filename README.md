@@ -1,227 +1,284 @@
-# 🍔 Fast & Foodious – Realtime Canteen Ordering System
+🍔 Fast & Foodious – Realtime Canteen Ordering System
 
-Fast & Foodious is a realtime, token-based canteen ordering web application that allows students to place food orders and staff to manage them live without page refreshes.
+Fast & Foodious is a realtime, token-based canteen ordering web application that allows students to place food orders, make payments (Cash / UPI), and staff to manage and verify them live without page refreshes.
 
----
+🚀 Tech Live Demo
 
-## Tech Live Demo 
-Home page.<br>
-🔗 https://fastfoodius-81742.web.app<br>
-Student page.<br>
-https://fastfoodius-81742.web.app/student.html<br>
-Staff page.<br>
-https://fastfoodius-81742.web.app/staff.html<br>
----
-## Tech Stack
+Home page
+🔗 https://fastfoodius-81742.web.app
 
-- **Frontend:** HTML, CSS, JavaScript, Bootstrap  
-- **Backend:** Firebase Realtime Database  
-- **Hosting:** Firebase Hosting  
-- **Other Tools:** html2canvas (bill screenshot)
+Student page
+🔗 https://fastfoodius-81742.web.app/student.html
 
----
+Staff page
+🔗 https://fastfoodius-81742.web.app/staff.html
 
-## Features & Logic Overview
+🛠 Tech Stack
 
-### 1️⃣ Landing Page (Home)
-**Feature:**  
-Shows app branding and entry point to ordering.
+Frontend: HTML, CSS, JavaScript, Bootstrap
 
-**Logic:**  
-Firebase Hosting loads `index.html` by default as the homepage.
+Backend: Firebase Realtime Database
 
----
+Hosting: Firebase Hosting
 
-### 2️⃣ Student Ordering Page
-**Feature:**  
-Students can browse food items and select quantities.
+Payments: UPI Deep Link Integration
 
-**Logic:**  
-`+ / -` buttons update quantity inputs using JavaScript event listeners.
+Other Tools: html2canvas (bill screenshot)
 
----
+🔥 Features & Logic Overview
+1️⃣ Landing Page (Home)
 
-### 3️⃣ Category Tabs (Snacks / Juices / Lunch)
-**Feature:**  
-Switch between food categories without page reload.
+Feature:
+Displays branding and entry points.
 
-**Logic:**  
-Bootstrap tab components show/hide sections dynamically.
+Logic:
+Firebase Hosting loads index.html as default entry.
 
----
+2️⃣ Student Ordering Interface
 
-### 4️⃣ Generate Bill
-**Feature:**  
-Creates a bill summary for selected items.
+Feature:
+Students can browse and select food quantities.
 
-**Logic:**  
-JavaScript loops through all menu items, calculates `price × quantity`, and builds the bill dynamically.
+Logic:
++ / - buttons dynamically update quantity fields using JS event listeners.
 
----
+3️⃣ Category Tabs (Snacks / Juices / Lunch)
 
-### 5️⃣ Bill Modal
-**Feature:**  
-Displays selected items, total amount, and confirmation options.
+Feature:
+Switch categories without page reload.
 
-**Logic:**  
-Bootstrap modal is triggered programmatically after validation.
+Logic:
+Bootstrap tabs dynamically toggle content.
 
----
+4️⃣ Dietary & Health-Safe Filtering 🥗
 
-### 6️⃣ Screenshot Bill
-**Feature:**  
-Users can download a screenshot of the bill.
+Feature:
+Students can filter menu items based on dietary needs:
 
-**Logic:**  
-`html2canvas` converts the modal DOM into an image and downloads it.
+Vegan (No Egg / No Non-Veg)
 
----
+No Dairy
 
-### 7️⃣ Confirm Order
-**Feature:**  
-Finalizes and submits the order.
+Diabetic Friendly (Low Sugar)
 
-**Logic:**  
-Order details are sent to Firebase Realtime Database.
+Logic:
+Each menu item contains data-tags.
+JavaScript hides items based on exclusion filtering.
 
----
+5️⃣ Generate Bill System
 
-### 8️⃣ Atomic Token System
-**Feature:**  
-Every order receives a unique, increasing token number.
+Feature:
+Creates real-time bill summary.
 
-**Logic:**  
-Firebase `runTransaction()` safely increments a `nextToken` counter.
+Logic:
+Loops through menu items → calculates price × quantity → builds ordered list dynamically.
 
----
+6️⃣ Bill Modal + Screenshot
 
-### 9️⃣ Realtime Order Storage
-**Feature:**  
-Stores items, total, time, token, and status.
+Feature:
+Shows breakdown + allows screenshot download.
 
-**Logic:**  
-Orders are pushed into `/orders` using Firebase `push()`.
+Logic:
 
----
+Bootstrap modal
 
-### 🔟 Order Status Tracking
-**Feature:**  
-Tracks order status: Pending → Prepared → Served.
+html2canvas converts DOM → image
 
-**Logic:**  
-Staff updates modify the `status` field in Firebase.
+7️⃣ Emergency Nutrition Support 💛 (Social Impact Feature)
+Contribution
 
----
+Students can donate ₹5 during checkout
 
-### 1️⃣1️⃣ My Orders (Student)
-**Feature:**  
-Students can see only their own orders.
+Donation stored inside order object
 
-**Logic:**  
-Order tokens are saved in `sessionStorage` and matched with Firebase data.
+Redemption
 
----
+Student activates “Support Mode”
 
-### 1️⃣2️⃣ Session-Based Memory
-**Feature:**  
-Orders persist during the browser session.
+₹30 discount applied automatically
 
-**Logic:**  
-Tokens are stored using `sessionStorage` (no authentication required).
+Limited to one use per session
 
----
+Discount never exceeds bill total
 
-### 1️⃣3️⃣ Staff Dashboard
-**Feature:**  
-Staff can view and manage orders live.
+Logic:
 
-**Logic:**  
-Realtime listeners (`onValue`) fetch orders from Firebase.
+Session-based restriction using sessionStorage
 
----
+Discount tracked via discountAmount
 
-### 1️⃣4️⃣ Prepare Order
-**Feature:**  
-Marks an order as prepared.
+Order stores supportUsed
 
-**Logic:**  
-Firebase `update()` modifies only the status field.
+8️⃣ Atomic Token System
 
----
+Feature:
+Every order receives a unique increasing token number.
 
-### 1️⃣5️⃣ Serve Order
-**Feature:**  
-Moves order to served history.
+Logic:
+Firebase runTransaction() increments counters/nextToken.
 
-**Logic:**  
-Order is copied to `/servedOrders` and removed from `/orders`.
+9️⃣ Realtime Order Storage
 
----
+Orders are stored in:
 
-### 1️⃣6️⃣ Clear Served History
-**Feature:**  
-Deletes all served orders.
+/orders
 
-**Logic:**  
-Firebase `remove()` clears the `/servedOrders` node.
 
----
+Each order includes:
 
-### 1️⃣7️⃣ Realtime Sync
-**Feature:**  
-Updates appear instantly on all screens.
+items
+total
+token
+time
+status
+donationAmount
+supportUsed
+discountAmount
+paymentMethod
+paymentStatus
 
-**Logic:**  
-Firebase Realtime Database pushes changes automatically.
+🔟 Payment System (Cash + UPI)
 
----
+After confirming order, a Payment Modal appears.
 
-### 1️⃣8️⃣ No Authentication (Development Mode)
-**Feature:**  
-Quick testing without login.
+Option 1: Cash
 
-**Logic:**  
-Firebase rules allow public read/write (can be locked later).
+Sets paymentMethod = "Cash"
 
----
+Sets paymentStatus = "Pending Verification"
 
-### 1️⃣9️⃣ Firebase Hosting
-**Feature:**  
-App is deployed live on the web.
+Option 2: UPI
 
-**Logic:**  
-Static files in `public/` are deployed using `firebase deploy`.
+Generates dynamic UPI deep link:
 
----
+upi://pay?pa=<upiId>&pn=<merchant>&am=<amount>&tn=Token-XX
 
-### 2️⃣0️⃣ SPA Routing Support
-**Feature:**  
-Direct URLs work after deployment.
 
-**Logic:**  
-Firebase Hosting rewrites all routes to `index.html`.
+Opens GPay / PhonePe on mobile
 
----
+Auto-fills:
 
+Amount
 
----
+Merchant Name
 
-## 🔐 Security Note
-- Firebase rules are currently open for demo/testing.
-- Authentication and rule locking can be added later.
+Token number in note
 
----
+Logic:
+Payment method and status stored in Firebase.
 
-## 🧾 Summary
-Fast & Foodious is a realtime canteen ordering system built using Firebase that demonstrates atomic transactions, realtime syncing, and a clean frontend workflow without authentication.
+1️⃣1️⃣ Payment Status Tracking
 
----
+Each order has:
 
-## 👤 Author
-**Mohammed Nabeel T**
+paymentMethod
+paymentStatus
 
----
 
+Possible statuses:
 
+Unpaid
 
+Pending Verification
 
+Verified
+
+1️⃣2️⃣ Staff Payment Verification System
+
+Staff dashboard shows:
+
+Payment status badge
+
+"Verify Payment" button
+
+Workflow:
+
+Student pays via UPI
+
+Staff receives payment with token in note
+
+Staff clicks “Verify Payment”
+
+Status updates to "Verified"
+
+Realtime sync updates student view instantly.
+
+1️⃣3️⃣ Order Lifecycle Tracking
+
+Order states:
+
+Pending → Prepared → Served
+
+Staff controls:
+
+Prepare
+
+Serve
+
+Delete
+
+1️⃣4️⃣ Served Order History
+
+Served orders move to:
+
+/servedOrders
+
+
+Staff can clear history.
+
+1️⃣5️⃣ Realtime Sync
+
+Firebase onValue() listeners update:
+
+Student dashboard
+
+Staff dashboard
+
+No page refresh required.
+
+1️⃣6️⃣ Session-Based Memory
+
+Orders linked via session token storage
+
+One support use per session
+
+No authentication required (demo mode)
+
+1️⃣7️⃣ Firebase Hosting
+
+Static files in public/ deployed using:
+
+firebase deploy
+
+1️⃣8️⃣ Development Mode (No Auth)
+
+Firebase rules currently open for demo/testing.
+
+Authentication + rule locking can be added later.
+
+🎯 What This Project Demonstrates
+
+✔ Realtime database architecture
+✔ Atomic transactions
+✔ Payment integration (UPI deep link)
+✔ Manual payment verification system
+✔ Social impact subsidy system
+✔ Health-aware filtering logic
+✔ Live dashboard synchronization
+✔ Structured scalable order schema
+
+🔐 Security Note
+
+UPI ID should be stored securely for production.
+
+Firebase rules should be locked before public scaling.
+
+Current build is optimized for demo showcase.
+
+🧾 Summary
+
+Fast & Foodious is a full realtime canteen ordering system with digital payments, staff verification workflow, dietary filtering, and emergency meal support logic — built entirely using Firebase and frontend technologies without authentication.
+
+👤 Author
+
+Mohammed Nabeel T

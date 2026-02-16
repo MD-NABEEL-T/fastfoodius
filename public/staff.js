@@ -36,19 +36,28 @@ import {
         ? order.items.map(it => `${it.name || it.dishName} × ${it.qty || 1} = ₹${it.amount || it.price || 0}`).join("<br>")
         : (order.items || "");
 
-      const tr = document.createElement("tr");
-      tr.innerHTML = `
-        <td><strong>${order.token || "-"}</strong></td>
-        <td style="min-width:260px">${itemsHtml}</td>
-        <td>₹${order.total || 0}</td>
-        <td>${order.time || new Date().toLocaleString()}</td>
-        <td><span class="badge ${status === "Prepared" ? "badge-prepared" : "badge-pending"}">${status}</span></td>
-        <td class="text-end">
-          ${status !== "Prepared" ? `<button class="btn btn-success btn-sm prepare-btn" data-id="${id}"><i class="fa fa-check"></i> Prepared</button>` : ""}
-          <button class="btn btn-primary btn-sm serve-btn" data-id="${id}"><i class="fa fa-utensils"></i> Served</button>
-          <button class="btn btn-danger btn-sm delete-btn" data-id="${id}"><i class="fa fa-trash"></i> Delete</button>
-        </td>
-      `;
+const paymentStatus = order.paymentStatus || "Unpaid";
+
+let paymentBadgeClass = "bg-danger";
+if (paymentStatus === "Pending Verification") paymentBadgeClass = "bg-warning";
+if (paymentStatus === "Verified") paymentBadgeClass = "bg-success";
+
+const tr = document.createElement("tr");
+tr.innerHTML = `
+  <td><strong>${order.token || "-"}</strong></td>
+  <td style="min-width:260px">${itemsHtml}</td>
+  <td>₹${order.total || 0}</td>
+  <td>${order.time || new Date().toLocaleString()}</td>
+  <td><span class="badge ${paymentBadgeClass}">${paymentStatus}</span></td>
+  <td><span class="badge ${status === "Prepared" ? "badge-prepared" : "badge-pending"}">${status}</span></td>
+  <td class="text-end">
+    ${paymentStatus !== "Verified" ? `<button class="btn btn-success btn-sm verify-btn" data-id="${id}">Verify Payment</button>` : ""}
+    ${status !== "Prepared" ? `<button class="btn btn-success btn-sm prepare-btn" data-id="${id}"><i class="fa fa-check"></i> Prepared</button>` : ""}
+    <button class="btn btn-primary btn-sm serve-btn" data-id="${id}"><i class="fa fa-utensils"></i> Served</button>
+    <button class="btn btn-danger btn-sm delete-btn" data-id="${id}"><i class="fa fa-trash"></i> Delete</button>
+  </td>
+`;
+
       activeTbody.appendChild(tr);
     });
 
@@ -115,8 +124,13 @@ import {
     const prepareBtn = e.target.closest(".prepare-btn");
     const serveBtn = e.target.closest(".serve-btn");
     const deleteBtn = e.target.closest(".delete-btn");
-
-    if (prepareBtn) {
+    const verifyBtn = e.target.closest(".verify-btn");
+    
+    if (verifyBtn) {
+    await update(ref(db, `orders/${verifyBtn.dataset.id}`), {
+      paymentStatus: "Verified"
+    });
+    }else if (prepareBtn) {
       await markPrepared(prepareBtn.dataset.id);
     } else if (serveBtn) {
       await markServed(serveBtn.dataset.id);
