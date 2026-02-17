@@ -452,17 +452,19 @@ if (upiOption) {
       ? parseFloat(amountMatch[1])
       : 0;
 
-    // Add 0.01 random for throttling safety (demo hack)
+    // Add 0.01 for throttling safety (demo trick)
     amount = (amount + 0.01).toFixed(2);
 
     const upiID = "aasifmmd12345@oksbi";
     const name = "FastFoodius";
 
-    const upilink = `upi://pay?pa=${upiID}&pn=${encodeURIComponent(name)}&am=${amount}&cu=INR`;
+    // 🔥 Android Intent for Google Pay
+    const intentURI = `intent://pay?pa=${upiID}&pn=${encodeURIComponent(name)}&am=${amount}&cu=INR#Intent;scheme=upi;package=com.google.android.apps.nbu.paisa.user;end`;
 
-    window.location.assign(upilink);
+    window.location.href = intentURI;
   });
 }
+
 
 });
 
