@@ -448,19 +448,19 @@ if (upiOption) {
     const amountElement = document.getElementById("modalGrandTotal");
     const amountMatch = amountElement.textContent.match(/₹([\d.]+)/);
 
-    const amount = amountMatch
-      ? parseFloat(amountMatch[1]).toFixed(2)
-      : "0.00";
+    let amount = amountMatch
+      ? parseFloat(amountMatch[1])
+      : 0;
 
-    const upiID = "aasifmmd12345@oksbi";   // your test UPI
+    // Add 0.01 random for throttling safety (demo hack)
+    amount = (amount + 0.01).toFixed(2);
+
+    const upiID = "aasifmmd12345@oksbi";
     const name = "FastFoodius";
 
-    // 🔥 CLEAN LINK (NO TOKEN, NO MESSAGE)
     const upilink = `upi://pay?pa=${upiID}&pn=${encodeURIComponent(name)}&am=${amount}&cu=INR`;
 
-    console.log("UPI LINK:", upilink);
-
-    window.location.href = upilink;
+    window.location.assign(upilink);
   });
 }
 
