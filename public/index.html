@@ -1,6 +1,7 @@
 //index.html
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -12,6 +13,7 @@
   <link rel="stylesheet" href="./style.css">
   <link rel="icon" href="favicon_32.png">
 </head>
+
 <body>
 
   <!-- top nav (keeps links but visually light) -->
@@ -43,10 +45,11 @@
         <span class="title-part">FOODIOUS</span>
       </h1>
 
-      <p class="tagline">Fast bites. Faster service. <span class="tag-highlight">Break the queue — enjoy something new.</span></p>
+      <p class="tagline">Fast bites. Faster service. <span class="tag-highlight">Break the queue — enjoy something
+          new.</span></p>
 
       <div class="cta-line">
-        <a class="btn btn-primary" href="student.html">Order Now</a>
+        <a class="btn btn-primary" href="signin.html">Order Now</a>
       </div>
 
       <div class="quick-links">
@@ -59,5 +62,28 @@
 
   <footer class="site-foot">© Fast & Foodious</footer>
 
+  <script type="module">
+    import { auth } from "./firebase-config.js";
+    import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
+    import { getDatabase, ref, get } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-database.js";
+
+    onAuthStateChanged(auth, async (user) => {
+      if (user) {
+        const db = getDatabase();
+        const snapshot = await get(ref(db, "users/" + user.uid));
+
+        if (snapshot.exists()) {
+          const role = snapshot.val().role;
+
+          if (role === "owner") {
+            window.location.href = "staff.html";
+          } else {
+            window.location.href = "student.html";
+          }
+        }
+      }
+    });
+  </script>
 </body>
+
 </html>

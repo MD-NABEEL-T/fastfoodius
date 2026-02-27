@@ -1,0 +1,3 @@
+issues to work on 
+
+1,search bar shows ony for specified items it should be like for all ok
