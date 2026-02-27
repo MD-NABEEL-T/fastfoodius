@@ -1,227 +1,71 @@
-.page_title {
-    padding: 30px 0px;
-}
-.page_title h1 {
-    color: #c0392b;
-    font-weight: 700;
-    line-height: 2;
-    margin-bottom: 0;
-    position: relative;
-    text-transform: capitalize;
-}
-.page_title h1::before {
-    background: #c0392b;
-    width: 70px;
-    height: 2px;
-    position: absolute;
-    content: '';
-    top: 90%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-.page_title h1::after {
-    position: absolute;
-    content: '';
-    background: #fbc531;
-    width: 30px;
-    height: 2px;
-    top: 90%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-/*Menu starts*/
-.menu_tab {
-    margin: 0 auto;
-    justify-content: center;
-}
-.nav-item {
-    display: inline-block;
-    text-align: center;
-}
-.nav-tabs {
-  border-bottom: none !important;
+/* student.css */
+body {
+  background: #f8f9fa;
+  padding-bottom: 80px;
 }
 
-.nav-tabs .nav-link{
-    transition: .3s;
-}
-.nav-tabs .nav-link.active {
-    background: #c0392b;
-    color: #fff;
-    font-weight: 700;
-    border: 1px solid #c0392b;
-    text-transform: capitalize;
-}
-.nav-link {
-    color: #000;
-}
-.nav-tabs .nav-link:hover {
-    background: #c0392b;
-    color: #fff;
-    border: 1px solid #c0392b;
-}
-.single_menu {
-    position: relative;
-    margin-bottom: 75px;
-    transition: .3s;
-}
-.single_menu:hover img{
-    -webkit-clip-path: polygon(0% 0%, 100% 0, 100% 50%, 100% 100%, 0% 100%);
-clip-path: polygon(0% 0%, 100% 0, 100% 50%, 100% 100%, 0% 100%);
-
-}
-.single_menu img {
-    width: 33%;
-    position: absolute;
-    height: 140px;
-    -webkit-clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
-    clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
-    transition: .3s;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-}
-.menu_content {
-    padding-left: 250px;
-}
-.menu_content h4 {
-    font-size: 25px;
-    font-weight: 300;
-    border-bottom: 1px dashed #c0392b;
-    line-height: 2;
-    text-transform: capitalize;
-}
-.menu_content h4 span {
-    font-size: 25px;
-    font-weight: 800;
-    float: right;
-    font-style: italic;
-    color: #c0392b;
-}
-.menu_content p {
-    font-weight: 200;
-    font-size: 16px;
-    letter-spacing: 1px;
-}
-.menu_btn.btn.btn-danger {
-    margin: 0 auto;
-    display: block;
-    width: 140px;
-}
-/*Menu ends*/
-.menu_btn.btn.btn-danger {
-	margin: 0 auto;
-	display: block;
-	width: 140px;
-}
-.btn.btn-danger {
-	background: #c0392b;
-	border: 1px solid #c0392b;
-	transition: .3s;
-	position: relative;
-	z-index: 1;
-	text-transform: capitalize;
-	font-weight: 700;
-	overflow: hidden;
-	padding: 15px 25px;
-}
-.btn.btn-danger::before {
-	position: absolute;
-	content: '';
-	background: #e74c3c;
-	width: 100%;
-	height: 100%;
-	left: -100%;
-	top: 100%;
-	transition: .3s;
-	z-index: -1;
-}
-.btn.btn-danger:hover:before{
-    top: 0;
-    left: 0;
-}   
-#snacks,#juices,#lunch{
-    border: 1px solid #b4abab;
-    padding-right:5px;
-    border-radius: 12px;
-    box-shadow: 10px 10px 8px rgba(0,0,0,0.05);
-}
-.plus,.minus{
-    border:1px solid #ff004f;
-    border-radius:5px;
-    width:30px;
-    text-align: center;
-    background-color: #ff004f;
-    color:white;
-    font-weight: 400;
-    font-size: 20px;
-    cursor:pointer;
-}
-.plus:active, .minus:active {
-  transform: scale(0.85);
-  transition: transform 0.1s;
-
-}
-.quantity {
-  width: 100px;
-  text-align: center;
-}
-
-
-/* bill summary  */
-.receipt-card {
-  max-width: 500px;
-  margin: 20px auto;
-  padding: 20px;
-  border: 2px dashed #333;
+.menu-item {
+  display: flex;
+  gap: 15px;
+  background: white;
+  padding: 12px;
   border-radius: 12px;
-  background: #fffdfa;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  font-family: 'Courier New', monospace;
+  margin-bottom: 12px;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
-.receipt-title {
-  text-align: center;
-  margin-bottom: 15px;
-  color: #c0392b;
+.menu-item img {
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  object-fit: cover;
 }
 
-.receipt-list {
-  list-style-type: none;
-  padding: 0;
+.details {
+  flex: 1;
+}
+
+.details h5 {
   margin: 0;
+  font-weight: 600;
 }
 
-.receipt-list li {
-  padding: 8px 0;
-  border-bottom: 1px dashed #ccc;
-  font-size: 16px;
+.details p {
+  margin: 4px 0;
+  color: #666;
 }
 
-.receipt-total {
-  margin-top: 15px;
-  padding-top: 10px;
-  border-top: 2px solid #c0392b;
-  text-align: right;
+.qty-control {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-.receipt-total h4 {
-  font-size: 20px;
+.qty-control button {
+  width: 30px;
+  height: 30px;
+  border: none;
+  background: #ff6a00;
+  color: white;
+  border-radius: 6px;
   font-weight: bold;
-  color: #27ae60;
 }
 
-.note>span{
-    color:red;
+.qty {
+  min-width: 20px;
+  text-align: center;
 }
 
-
-
-
-@media only screen and (max-width: 600px) {
-    .menu_content {
-    padding-left: 150px;
+.cart-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #212529;
+  color: white;
+  padding: 12px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-    span{
-        margin-right: 7px;
-    }
-} 

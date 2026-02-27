@@ -1,0 +1,99 @@
+🧠 Refined FINAL Architecture (Production-Grade)
+
+Student (Auth)
+↓
+Select Items
+↓
+Call backend → create Razorpay order
+↓
+Open Razorpay Checkout
+↓
+Payment success
+↓
+Cloud Function verifies signature
+↓
+Run stock transaction (atomic)
+↓
+If stock available →
+Generate daily token
+Create order (Paid)
+Else →
+Trigger refund
+↓
+Owner sees order
+↓
+Owner updates Preparing → Ready → Served
+
+That is enterprise-safe.
+
+✅ Everything Else In Your Checklist Is Solid
+
+Now let me confirm your major pillars.
+
+1️⃣ Authentication
+
+Correct.
+
+Add one more:
+
+ Email verification for students (optional but better)
+
+2️⃣ Menu Management
+
+Correct.
+
+Add one more:
+
+ Price cannot be negative
+
+ Stock cannot be negative
+
+Basic validation.
+
+3️⃣ Stock Control
+
+Perfect.
+
+Add:
+
+ Stock transaction happens server-side only
+
+4️⃣ Payment Integration
+
+Perfect direction.
+
+Add:
+
+ Store Razorpay payment_id
+
+ Store Razorpay order_id
+
+ Store payment timestamp
+
+For audit.
+
+5️⃣ Owner Panel
+
+Correct.
+
+Add:
+
+ Date filter
+
+ Search by token
+
+ Sort by newest first
+
+Staff will love this.
+
+6️⃣ Security Rules
+
+Very important.
+
+Add:
+
+ Students can only read their own orders
+
+ Owner can read all orders
+
+Otherwise students can see everyone’s orders.
