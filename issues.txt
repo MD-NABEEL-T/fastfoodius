@@ -1,3 +1,15 @@
 issues to work on 
 
 1,search bar shows ony for specified items it should be like for all ok
+2, the canteen staff has to be able to select the item and stock available and it will be displayed in the student page
+
+
+
+
+After UI is clean, then we implement:
+Date filter
+Search by token
+Sort newest
+Revenue summary
+And then Razorpay + stock system
+One layer at a time.

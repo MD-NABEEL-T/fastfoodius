@@ -21,73 +21,99 @@ import {
   const servedRef = ref(db, "servedOrders");
 
   // -------- Rendering --------
-  function renderActive(orders) {
-    activeTbody.innerHTML = "";
-    if (!orders) {
-      activeTbody.innerHTML = `<tr><td colspan="6" class="text-muted">No active orders.</td></tr>`;
-      return;
-    }
+ function renderActive(orders) {
+  activeTbody.innerHTML = "";
 
-    Object.entries(orders).forEach(([id, order]) => {
-      const status = order.status || "Pending";
-      if (status === "Served") return; // don't show served ones here
-
-      const itemsHtml = Array.isArray(order.items)
-        ? order.items.map(it => `${it.name || it.dishName} × ${it.qty || 1} = ₹${it.amount || it.price || 0}`).join("<br>")
-        : (order.items || "");
-
-const paymentStatus = order.paymentStatus || "Unpaid";
-
-let paymentBadgeClass = "bg-danger";
-if (paymentStatus === "Pending Verification") paymentBadgeClass = "bg-warning";
-if (paymentStatus === "Verified") paymentBadgeClass = "bg-success";
-
-const tr = document.createElement("tr");
-tr.innerHTML = `
-  <td><strong>${order.token || "-"}</strong></td>
-  <td style="min-width:260px">${itemsHtml}</td>
-  <td>₹${order.total || 0}</td>
-  <td>${order.time || new Date().toLocaleString()}</td>
-  <td><span class="badge ${paymentBadgeClass}">${paymentStatus}</span></td>
-  <td><span class="badge ${status === "Prepared" ? "badge-prepared" : "badge-pending"}">${status}</span></td>
-  <td class="text-end">
-    ${paymentStatus !== "Verified" ? `<button class="btn btn-success btn-sm verify-btn" data-id="${id}">Verify Payment</button>` : ""}
-    ${status !== "Prepared" ? `<button class="btn btn-success btn-sm prepare-btn" data-id="${id}"><i class="fa fa-check"></i> Prepared</button>` : ""}
-    <button class="btn btn-primary btn-sm serve-btn" data-id="${id}"><i class="fa fa-utensils"></i> Served</button>
-    <button class="btn btn-danger btn-sm delete-btn" data-id="${id}"><i class="fa fa-trash"></i> Delete</button>
-  </td>
-`;
-
-      activeTbody.appendChild(tr);
-    });
-
-    if (activeTbody.children.length === 0) {
-      activeTbody.innerHTML = `<tr><td colspan="6" class="text-muted">No active orders.</td></tr>`;
-    }
+  if (!orders) {
+    activeTbody.innerHTML = `<p class="text-muted">No active orders.</p>`;
+    return;
   }
 
-  function renderServed(orders) {
-    servedTbody.innerHTML = "";
-    if (!orders) {
-      servedTbody.innerHTML = `<tr><td colspan="5" class="text-muted">No served orders.</td></tr>`;
-      return;
-    }
-    Object.values(orders).forEach(order => {
+  Object.entries(orders)
+    .reverse() // newest first
+    .forEach(([id, order]) => {
+
+      const status = order.status || "Pending";
+      if (status === "Served") return;
+
       const itemsHtml = Array.isArray(order.items)
-        ? order.items.map(it => `${it.name || it.dishName} × ${it.qty || 1} = ₹${it.amount || it.price || 0}`).join("<br>")
-        : (order.items || "");
+        ? order.items.map(it =>
+            `${it.name || it.dishName} × ${it.qty || 1}`
+          ).join("<br>")
+        : order.items;
+
+      const paymentStatus = order.paymentStatus || "Unpaid";
+
+      const card = document.createElement("div");
+      card.className = "order-card";
+
+      card.innerHTML = `
+        <h5>Token #${order.token || "-"}</h5>
+        <div class="order-meta">
+          ₹${order.total || 0} • ${order.time || ""}
+        </div>
+
+        <div class="order-items">
+          ${itemsHtml}
+        </div>
+
+        <div class="mb-2">
+          <span class="badge bg-${paymentStatus === "Verified" ? "success" : "danger"}">
+            ${paymentStatus}
+          </span>
+
+          <span class="badge ${
+            status === "Prepared"
+              ? "badge-prepared"
+              : "badge-pending"
+          }">
+            ${status}
+          </span>
+        </div>
+
+        <div class="order-actions">
+          ${paymentStatus !== "Verified"
+            ? `<button class="btn btn-success btn-sm verify-btn" data-id="${id}">Verify</button>`
+            : ""}
+
+          ${status !== "Prepared"
+            ? `<button class="btn btn-warning btn-sm prepare-btn" data-id="${id}">Prepare</button>`
+            : ""}
+
+          <button class="btn btn-primary btn-sm serve-btn" data-id="${id}">Serve</button>
+        </div>
+      `;
+
+      activeTbody.appendChild(card);
+    });
+
+  if (activeTbody.children.length === 0) {
+    activeTbody.innerHTML = `<p class="text-muted">No active orders.</p>`;
+  }
+}
+
+function renderServed(orders) {
+  servedTbody.innerHTML = "";
+
+  if (!orders) {
+    servedTbody.innerHTML =
+      `<tr><td colspan="3" class="text-muted">No served orders.</td></tr>`;
+    return;
+  }
+
+  Object.values(orders)
+    .reverse()
+    .forEach(order => {
 
       const tr = document.createElement("tr");
       tr.innerHTML = `
         <td>${order.token || "-"}</td>
-        <td style="min-width:260px">${itemsHtml}</td>
         <td>₹${order.total || 0}</td>
-        <td>${order.time || new Date().toLocaleString()}</td>
-        <td><span class="badge badge-served">Served</span></td>
+        <td>${order.time || ""}</td>
       `;
       servedTbody.appendChild(tr);
     });
-  }
+}
 
   // -------- Actions --------
   async function markPrepared(id) {
