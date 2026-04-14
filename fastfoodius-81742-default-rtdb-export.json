@@ -1,0 +1,3036 @@
+{
+  "counters": {
+    "nextToken": 208
+  },
+  "menu": {
+    "item1": {
+      "category": "Snacks",
+      "image": "images/eggpuff.jpg",
+      "name": "Egg Puff",
+      "price": 15,
+      "stock": 50
+    },
+    "item2": {
+      "category": "Snacks",
+      "image": "images/samosa.jpg",
+      "name": "Samosa",
+      "price": 15,
+      "stock": 40
+    },
+    "item3": {
+      "category": "Juices",
+      "image": "images/mangojuice.jpg",
+      "name": "Mango Juice",
+      "price": 10,
+      "stock": 24
+    },
+    "item4": {
+      "category": "Juices",
+      "image": "images/orangejuice.jpg",
+      "name": "Orange Juice",
+      "price": 12,
+      "stock": 3
+    },
+    "item5": {
+      "category": "Lunch",
+      "image": "images/biriyani.jpg",
+      "name": "Biriyani",
+      "price": 55,
+      "stock": 5
+    },
+    "item6": {
+      "category": "Lunch",
+      "image": "images/khushka.jpeg",
+      "name": "Khushka",
+      "price": 30,
+      "stock": 20
+    }
+  },
+  "orders": {
+    "-OljWyyN8zhPpbCACCgG": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 15,
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 1
+        }
+      ],
+      "paymentStatus": "Unpaid",
+      "status": "Prepared",
+      "supportUsed": false,
+      "time": "18/2/2026, 12:25:05 pm",
+      "token": 80,
+      "total": 15
+    },
+    "-OljXcVCy7N-Xy3kP1LZ": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 50,
+          "name": "Fried Rice",
+          "price": 50,
+          "qty": 1
+        }
+      ],
+      "paymentStatus": "Unpaid",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "18/2/2026, 12:27:55 pm",
+      "token": 84,
+      "total": 50
+    },
+    "-OljXcjRp4jHDY5815ML": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 120,
+          "name": "Biriyani",
+          "price": 60,
+          "qty": 2
+        }
+      ],
+      "paymentMethod": "UPI",
+      "paymentStatus": "Unpaid",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "18/02/2026, 12:27:56",
+      "token": 85,
+      "total": 120
+    },
+    "-OljYJFmjecZfpPBmlQg": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 60,
+          "name": "Biriyani",
+          "price": 60,
+          "qty": 1
+        }
+      ],
+      "paymentMethod": "UPI",
+      "paymentStatus": "Unpaid",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "18/02/2026, 12:30:54",
+      "token": 86,
+      "total": 60
+    },
+    "-Olj_JIRll3X1-xmP1wL": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 15,
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 1
+        }
+      ],
+      "paymentMethod": "UPI",
+      "paymentStatus": "Unpaid",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "18/02/2026, 12:39:39",
+      "token": 87,
+      "total": 15
+    },
+    "-OljgEBTecL2WmPbhWNd": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 50,
+          "name": "Fried Rice",
+          "price": 50,
+          "qty": 1
+        }
+      ],
+      "paymentStatus": "Unpaid",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "18/2/2026, 1:09:53 pm",
+      "token": 88,
+      "total": 50
+    },
+    "-OljgMUleVMokc4dwri4": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 30,
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 2
+        }
+      ],
+      "paymentMethod": "UPI",
+      "paymentStatus": "Unpaid",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "18/02/2026, 13:10:27",
+      "token": 89,
+      "total": 30
+    },
+    "-OljyscG_My3BhKbZ-a_": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 15,
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 1
+        },
+        {
+          "amount": 15,
+          "name": "Samosa",
+          "price": 15,
+          "qty": 1
+        },
+        {
+          "amount": 13,
+          "name": "Cutlet",
+          "price": 13,
+          "qty": 1
+        }
+      ],
+      "paymentStatus": "Unpaid",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "18/2/2026, 2:31:22 pm",
+      "token": 90,
+      "total": 43
+    },
+    "-OljzWuRK8VHn_cFIlTE": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 45,
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 3
+        }
+      ],
+      "paymentMethod": "UPI",
+      "paymentStatus": "Unpaid",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "18/02/2026, 14:34:10",
+      "token": 91,
+      "total": 45
+    },
+    "-Olk3szXYAztBP4-tBsK": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 15,
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 1
+        },
+        {
+          "amount": 50,
+          "name": "Fried Rice",
+          "price": 50,
+          "qty": 1
+        }
+      ],
+      "paymentStatus": "Unpaid",
+      "status": "Prepared",
+      "supportUsed": false,
+      "time": "18/2/2026, 2:57:36 pm",
+      "token": 93,
+      "total": 65
+    },
+    "-Olk46DoUagMWCihHBJC": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 15,
+          "name": "Samosa",
+          "price": 15,
+          "qty": 1
+        }
+      ],
+      "paymentMethod": "UPI",
+      "paymentStatus": "Unpaid",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "18/02/2026, 14:58:34",
+      "token": 94,
+      "total": 15
+    },
+    "-Olk4vTAmkVHxWo0OgGj": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 15,
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 1
+        }
+      ],
+      "paymentMethod": "UPI",
+      "paymentStatus": "Unpaid",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "18/02/2026, 15:02:08",
+      "token": 95,
+      "total": 15
+    },
+    "-Olk5142SqTQ2q8CX6Bu": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 15,
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 1
+        }
+      ],
+      "paymentMethod": "Cash",
+      "paymentStatus": "Pending Verification",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "18/02/2026, 15:02:35",
+      "token": 96,
+      "total": 15
+    },
+    "-Olk6jCKiWkkYrkhuUR9": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 180,
+          "name": "Biriyani",
+          "price": 60,
+          "qty": 3
+        }
+      ],
+      "paymentMethod": "UPI",
+      "paymentStatus": "Verified",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "18/02/2026, 15:10:02",
+      "token": 98,
+      "total": 180
+    },
+    "-Olk8dLpg6j4CyyEViRu": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 15,
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 1
+        }
+      ],
+      "paymentMethod": "Cash",
+      "paymentStatus": "Pending Verification",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "18/2/2026, 3:18:23 pm",
+      "token": 99,
+      "total": 15
+    },
+    "-Olk9iLniOUEzZhz_sTS": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 135,
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 9
+        }
+      ],
+      "paymentMethod": "Cash",
+      "paymentStatus": "Pending Verification",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "18/2/2026, 3:23:05 pm",
+      "token": 100,
+      "total": 135
+    },
+    "-OlkA-uSY7Ne8SNiv7TZ": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 15,
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 1
+        },
+        {
+          "amount": 15,
+          "name": "Samosa",
+          "price": 15,
+          "qty": 1
+        }
+      ],
+      "paymentStatus": "Unpaid",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "18/2/2026, 3:24:21 pm",
+      "token": 101,
+      "total": 30
+    },
+    "-OlkAeXoSjA1MCp6nJOU": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 15,
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 1
+        },
+        {
+          "amount": 15,
+          "name": "Samosa",
+          "price": 15,
+          "qty": 1
+        },
+        {
+          "amount": 12,
+          "name": "Blue Soda",
+          "price": 12,
+          "qty": 1
+        }
+      ],
+      "paymentStatus": "Unpaid",
+      "status": "Prepared",
+      "supportUsed": false,
+      "time": "18/2/2026, 3:27:12 pm",
+      "token": 102,
+      "total": 42
+    },
+    "-OlkAzne-TUen1dd8h8q": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 15,
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 1
+        },
+        {
+          "amount": 30,
+          "name": "Samosa",
+          "price": 15,
+          "qty": 2
+        },
+        {
+          "amount": 52,
+          "name": "Cutlet",
+          "price": 13,
+          "qty": 4
+        },
+        {
+          "amount": 10,
+          "name": "Mango Juice",
+          "price": 10,
+          "qty": 1
+        },
+        {
+          "amount": 50,
+          "name": "Fried Rice",
+          "price": 50,
+          "qty": 1
+        },
+        {
+          "amount": 60,
+          "name": "Biriyani",
+          "price": 60,
+          "qty": 1
+        }
+      ],
+      "paymentMethod": "UPI",
+      "paymentStatus": "Unpaid",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "18/02/2026, 15:28:38",
+      "token": 103,
+      "total": 217
+    },
+    "-OlkBHSSwHhUlPPiyHF-": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 13,
+          "name": "Cutlet",
+          "price": 13,
+          "qty": 1
+        }
+      ],
+      "paymentMethod": "Cash",
+      "paymentStatus": "Pending Verification",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "18/02/2026, 15:29:55",
+      "token": 104,
+      "total": 13
+    },
+    "-OlkBSDt4QrGduuPovx4": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 13,
+          "name": "Cutlet",
+          "price": 13,
+          "qty": 1
+        }
+      ],
+      "paymentStatus": "Unpaid",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "18/02/2026, 15:30:39",
+      "token": 105,
+      "total": 13
+    },
+    "-OlkBfbffOW7yHxSpmRF": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 15,
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 1
+        },
+        {
+          "amount": 120,
+          "name": "Biriyani",
+          "price": 60,
+          "qty": 2
+        }
+      ],
+      "paymentMethod": "UPI",
+      "paymentStatus": "Unpaid",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "18/02/2026, 15:31:38",
+      "token": 106,
+      "total": 135
+    },
+    "-OlkCB8px49U3x_lRZ1A": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 15,
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 1
+        },
+        {
+          "amount": 15,
+          "name": "Samosa",
+          "price": 15,
+          "qty": 1
+        },
+        {
+          "amount": 13,
+          "name": "Cutlet",
+          "price": 13,
+          "qty": 1
+        }
+      ],
+      "paymentMethod": "UPI",
+      "paymentStatus": "Unpaid",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "18/02/2026, 15:33:51",
+      "token": 108,
+      "total": 43
+    },
+    "-OlkDYx8NhqB7M7WMPC4": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 15,
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 1
+        }
+      ],
+      "paymentStatus": "Unpaid",
+      "status": "Prepared",
+      "supportUsed": false,
+      "time": "18/2/2026, 3:39:51 pm",
+      "token": 109,
+      "total": 15
+    },
+    "-OlkDt00aP_8P1Wx9Ski": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 60,
+          "name": "Biriyani",
+          "price": 60,
+          "qty": 1
+        }
+      ],
+      "paymentMethod": "UPI",
+      "paymentStatus": "Verified",
+      "status": "Prepared",
+      "supportUsed": false,
+      "time": "18/02/2026, 15:41:17",
+      "token": 110,
+      "total": 60
+    },
+    "-OlkF_PVWi8pdS-bK6zb": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 15,
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 1
+        },
+        {
+          "amount": 15,
+          "name": "Samosa",
+          "price": 15,
+          "qty": 1
+        },
+        {
+          "amount": 12,
+          "name": "Blue Soda",
+          "price": 12,
+          "qty": 1
+        },
+        {
+          "amount": 12,
+          "name": "Green Soda",
+          "price": 12,
+          "qty": 1
+        }
+      ],
+      "paymentStatus": "Verified",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "18/2/2026, 3:48:41 pm",
+      "token": 111,
+      "total": 54
+    },
+    "-OlkFl9lrJK-mEDX1rCF": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 15,
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 1
+        },
+        {
+          "amount": 15,
+          "name": "Samosa",
+          "price": 15,
+          "qty": 1
+        }
+      ],
+      "paymentMethod": "UPI",
+      "paymentStatus": "Unpaid",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "18/02/2026, 15:49:29",
+      "token": 112,
+      "total": 30
+    },
+    "-OlkHbcOUQ3IsWlOsvrP": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 36,
+          "name": "Blue Soda",
+          "price": 12,
+          "qty": 3
+        }
+      ],
+      "paymentMethod": "UPI",
+      "paymentStatus": "Unpaid",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "18/02/2026, 15:57:35",
+      "token": 113,
+      "total": 36
+    },
+    "-OlkIToIdv42SI99GawF": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 90,
+          "name": "Kushka",
+          "price": 30,
+          "qty": 3
+        }
+      ],
+      "paymentMethod": "UPI",
+      "paymentStatus": "Unpaid",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "18/02/2026, 16:01:21",
+      "token": 115,
+      "total": 90
+    },
+    "-OlkIx8l_mpttIOGLKKg": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 15,
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 1
+        },
+        {
+          "amount": 15,
+          "name": "Samosa",
+          "price": 15,
+          "qty": 1
+        }
+      ],
+      "paymentMethod": "Cash",
+      "paymentStatus": "Pending Verification",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "18/2/2026, 4:03:25 pm",
+      "token": 116,
+      "total": 30
+    },
+    "-OlkK-5EC5QVZZZqHHRM": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 15,
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 1
+        }
+      ],
+      "paymentMethod": "UPI",
+      "paymentStatus": "Unpaid",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "18/02/2026, 16:07:59",
+      "token": 117,
+      "total": 15
+    },
+    "-OlkLUBXVZh0QJOrfpXt": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 15,
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 1
+        }
+      ],
+      "paymentMethod": "UPI",
+      "paymentStatus": "Unpaid",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "18/02/2026, 16:14:29",
+      "token": 118,
+      "total": 15
+    },
+    "-OlkM5_PSr-fj05oE28j": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 315,
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 21
+        }
+      ],
+      "paymentMethod": "Cash",
+      "paymentStatus": "Pending Verification",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "18/2/2026, 4:17:09 pm",
+      "token": 119,
+      "total": 315
+    },
+    "-OlkNF-vVcKy1BMzcTVn": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 15,
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 1
+        },
+        {
+          "amount": 15,
+          "name": "Samosa",
+          "price": 15,
+          "qty": 1
+        },
+        {
+          "amount": 13,
+          "name": "Cutlet",
+          "price": 13,
+          "qty": 1
+        },
+        {
+          "amount": 12,
+          "name": "Blue Soda",
+          "price": 12,
+          "qty": 1
+        },
+        {
+          "amount": 100,
+          "name": "Fried Rice",
+          "price": 50,
+          "qty": 2
+        }
+      ],
+      "paymentMethod": "UPI",
+      "paymentStatus": "Unpaid",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "18/02/2026, 16:22:10",
+      "token": 120,
+      "total": 155
+    },
+    "-OlloWyHOnHdvaUZQJvZ": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 15,
+          "name": "Samosa",
+          "price": 15,
+          "qty": 1
+        },
+        {
+          "amount": 13,
+          "name": "Cutlet",
+          "price": 13,
+          "qty": 1
+        }
+      ],
+      "paymentMethod": "Cash",
+      "paymentStatus": "Pending Verification",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "18/02/2026, 23:05:21",
+      "token": 121,
+      "total": 28
+    },
+    "-OllrThrCjfP23KYLlT6": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 15,
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 1
+        }
+      ],
+      "paymentMethod": "Cash",
+      "paymentStatus": "Pending Verification",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "18/02/2026, 23:18:14",
+      "token": 122,
+      "total": 15
+    },
+    "-OllrZYFCjubh4IHBiaR": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 30,
+          "name": "Samosa",
+          "price": 15,
+          "qty": 2
+        }
+      ],
+      "paymentMethod": "UPI",
+      "paymentStatus": "Verified",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "18/02/2026, 23:18:38",
+      "token": 123,
+      "total": 30
+    },
+    "-OllrgWYp5V0N3pzLiDe": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 30,
+          "name": "Samosa",
+          "price": 15,
+          "qty": 2
+        }
+      ],
+      "paymentMethod": "UPI",
+      "paymentStatus": "Unpaid",
+      "status": "Prepared",
+      "supportUsed": false,
+      "time": "18/02/2026, 23:19:11",
+      "token": 124,
+      "total": 30
+    },
+    "-OmHte01lxuay_GxH3RJ": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 36,
+          "name": "Blue Soda",
+          "price": 12,
+          "qty": 3
+        }
+      ],
+      "paymentMethod": "UPI",
+      "paymentStatus": "Verified",
+      "status": "Prepared",
+      "supportUsed": false,
+      "time": "25/02/2026, 09:15:13",
+      "token": 125,
+      "total": 36
+    },
+    "-OmHuH119f_wIPIPTcxZ": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 30,
+          "name": "Samosa",
+          "price": 15,
+          "qty": 2
+        }
+      ],
+      "paymentStatus": "Unpaid",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "25/02/2026, 09:17:57",
+      "token": 126,
+      "total": 30
+    },
+    "-OmPzBbChLvV4lcphWsZ": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 15,
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 1
+        },
+        {
+          "amount": 13,
+          "name": "Cutlet",
+          "price": 13,
+          "qty": 1
+        }
+      ],
+      "paymentMethod": "Cash",
+      "paymentStatus": "Pending Verification",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "2/26/2026, 10:56:24 PM",
+      "token": 127,
+      "total": 28
+    },
+    "-OmQ2EuBORZv_Jf8A8Of": {
+      "discountAmount": 30,
+      "donationAmount": 5,
+      "items": [
+        {
+          "amount": 15,
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 1
+        }
+      ],
+      "paymentMethod": "Cash",
+      "paymentStatus": "Pending Verification",
+      "status": "Pending",
+      "supportUsed": true,
+      "time": "2/26/2026, 11:14:07 PM",
+      "token": 128,
+      "total": 20
+    },
+    "-OmQ7jvyo489GFVcA1sR": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 15,
+          "name": "Samosa",
+          "price": 15,
+          "qty": 1
+        }
+      ],
+      "paymentMethod": "Cash",
+      "paymentStatus": "Pending Verification",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "2/26/2026, 11:37:16 PM",
+      "token": 129,
+      "total": 15
+    },
+    "-OmQAwoiImEkX9LYKIA4": {
+      "discountAmount": 0,
+      "donationAmount": 5,
+      "items": [
+        {
+          "amount": 15,
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 1
+        }
+      ],
+      "paymentMethod": "UPI",
+      "paymentStatus": "Unpaid",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "26/02/2026, 23:52:06",
+      "token": 130,
+      "total": 20
+    },
+    "-OmQDZrB4Sp5_TV5Cuvx": {
+      "discountAmount": 30,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 15,
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 1
+        },
+        {
+          "amount": 12,
+          "name": "Blue Soda",
+          "price": 12,
+          "qty": 1
+        }
+      ],
+      "paymentMethod": "Cash",
+      "paymentStatus": "Pending Verification",
+      "status": "Pending",
+      "supportUsed": true,
+      "time": "27/02/2026, 00:03:33",
+      "token": 131,
+      "total": 27
+    },
+    "-OmQKypEJs2IY7MsFwCG": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 15,
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 1
+        },
+        {
+          "amount": 15,
+          "name": "Samosa",
+          "price": 15,
+          "qty": 1
+        },
+        {
+          "amount": 13,
+          "name": "Cutlet",
+          "price": 13,
+          "qty": 1
+        },
+        {
+          "amount": 60,
+          "name": "Biriyani",
+          "price": 60,
+          "qty": 1
+        }
+      ],
+      "paymentMethod": "Cash",
+      "paymentStatus": "Pending Verification",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "2/27/2026, 12:35:56 AM",
+      "token": 132,
+      "total": 103
+    },
+    "-OmQVIINaA4bBGBgKPDR": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 15,
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 1
+        },
+        {
+          "amount": 15,
+          "name": "Samosa",
+          "price": 15,
+          "qty": 1
+        },
+        {
+          "amount": 13,
+          "name": "Cutlet",
+          "price": 13,
+          "qty": 1
+        },
+        {
+          "amount": 10,
+          "name": "Mango Juice",
+          "price": 10,
+          "qty": 1
+        },
+        {
+          "amount": 12,
+          "name": "7 Up",
+          "price": 12,
+          "qty": 1
+        },
+        {
+          "amount": 50,
+          "name": "Fried Rice",
+          "price": 50,
+          "qty": 1
+        }
+      ],
+      "paymentMethod": "Cash",
+      "paymentStatus": "Verified",
+      "status": "Prepared",
+      "supportUsed": false,
+      "time": "27/02/2026, 01:21:02",
+      "token": 133,
+      "total": 115
+    },
+    "-OmQVKqldkbWlgj4EwBi": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 50,
+          "name": "Fried Rice",
+          "price": 50,
+          "qty": 1
+        }
+      ],
+      "paymentMethod": "Cash",
+      "paymentStatus": "Pending Verification",
+      "status": "Prepared",
+      "supportUsed": false,
+      "time": "27/02/2026, 01:21:12",
+      "token": 134,
+      "total": 50
+    },
+    "-OmQVMR3obFV-V-tFVDB": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 50,
+          "name": "Fried Rice",
+          "price": 50,
+          "qty": 1
+        }
+      ],
+      "paymentMethod": "UPI",
+      "paymentStatus": "Unpaid",
+      "status": "Prepared",
+      "supportUsed": false,
+      "time": "27/02/2026, 01:21:19",
+      "token": 135,
+      "total": 50
+    },
+    "-OmRbvNUR7MCHA7-EhQ3": {
+      "discountAmount": 0,
+      "donationAmount": 5,
+      "items": [
+        {
+          "amount": 12,
+          "name": "Blue Soda",
+          "price": 12,
+          "qty": 1
+        }
+      ],
+      "paymentMethod": "Cash",
+      "paymentStatus": "Pending Verification",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "27/02/2026, 06:33:58",
+      "token": 136,
+      "total": 17
+    },
+    "-OmRc5cV04pOtUd75gl0": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 15,
+          "name": "Samosa",
+          "price": 15,
+          "qty": 1
+        },
+        {
+          "amount": 13,
+          "name": "Cutlet",
+          "price": 13,
+          "qty": 1
+        }
+      ],
+      "paymentMethod": "UPI",
+      "paymentStatus": "Unpaid",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "27/02/2026, 06:34:44",
+      "token": 137,
+      "total": 28
+    },
+    "-OmRdkcDKGYIeNK0O4cH": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 15,
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 1
+        },
+        {
+          "amount": 13,
+          "name": "Cutlet",
+          "price": 13,
+          "qty": 1
+        },
+        {
+          "amount": 12,
+          "name": "Blue Soda",
+          "price": 12,
+          "qty": 1
+        }
+      ],
+      "paymentMethod": "Cash",
+      "paymentStatus": "Pending Verification",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "27/02/2026, 06:41:59",
+      "token": 138,
+      "total": 40
+    },
+    "-OmRgxgbNN1cML_KNH6J": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 3000000,
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 200000
+        }
+      ],
+      "paymentMethod": "Cash",
+      "paymentStatus": "Pending Verification",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "27/2/2026, 6:55:58 AM",
+      "token": 139,
+      "total": 3000000
+    },
+    "-OmRh4Q3MlVBWxx0SUbL": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 6e+28,
+          "name": "Biriyani",
+          "price": 60,
+          "qty": 1e+27
+        }
+      ],
+      "paymentMethod": "Cash",
+      "paymentStatus": "Pending Verification",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "27/2/2026, 6:56:30 AM",
+      "token": 140,
+      "total": 6e+28
+    },
+    "-OmRjZS_YU0KUokXL2uj": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 15,
+          "name": "Samosa",
+          "price": 15,
+          "qty": 1
+        }
+      ],
+      "paymentStatus": "Unpaid",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "27/02/2026, 07:07:22",
+      "token": 141,
+      "total": 15
+    },
+    "-OmSD3t56r5xZhFyVbMR": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 15,
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 1
+        }
+      ],
+      "paymentMethod": "Cash",
+      "paymentStatus": "Pending Verification",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "27/02/2026, 09:20:38",
+      "token": 142,
+      "total": 15
+    },
+    "-OmSD6jYps5RAfZSIWoT": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 15,
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 1
+        }
+      ],
+      "paymentMethod": "UPI",
+      "paymentStatus": "Unpaid",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "27/02/2026, 09:20:50",
+      "token": 143,
+      "total": 15
+    },
+    "-OmSWqSD4htFvMB210mg": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 15,
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 1
+        },
+        {
+          "amount": 15,
+          "name": "Samosa",
+          "price": 15,
+          "qty": 1
+        },
+        {
+          "amount": 13,
+          "name": "Cutlet",
+          "price": 13,
+          "qty": 1
+        }
+      ],
+      "paymentMethod": "Cash",
+      "paymentStatus": "Pending Verification",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "27/02/2026, 10:47:03",
+      "token": 144,
+      "total": 43
+    },
+    "-OmSYbC_OKXXzipNg4Is": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 15,
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 1
+        },
+        {
+          "amount": 15,
+          "name": "Samosa",
+          "price": 15,
+          "qty": 1
+        }
+      ],
+      "paymentStatus": "Unpaid",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "27/02/2026, 10:54:44",
+      "token": 145,
+      "total": 30
+    },
+    "-OmS_-izLBfaoSYY4OYa": {
+      "discountAmount": 30,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 15,
+          "name": "Samosa",
+          "price": 15,
+          "qty": 1
+        },
+        {
+          "amount": 13,
+          "name": "Cutlet",
+          "price": 13,
+          "qty": 1
+        }
+      ],
+      "paymentMethod": "Cash",
+      "paymentStatus": "Pending Verification",
+      "status": "Pending",
+      "supportUsed": true,
+      "time": "27/02/2026, 11:00:50",
+      "token": 146,
+      "total": 28
+    },
+    "-OmSlBs2VvZ2bOCNFi0g": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 15,
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 1
+        },
+        {
+          "amount": 15,
+          "name": "Samosa",
+          "price": 15,
+          "qty": 1
+        },
+        {
+          "amount": 13,
+          "name": "Cutlet",
+          "price": 13,
+          "qty": 1
+        }
+      ],
+      "paymentMethod": "Cash",
+      "paymentStatus": "Pending Verification",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "27/02/2026, 11:54:06",
+      "token": 147,
+      "total": 43
+    },
+    "-OmSlKFdFBS91c1-mas5": {
+      "discountAmount": 0,
+      "donationAmount": 5,
+      "items": [
+        {
+          "amount": 15,
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 1
+        }
+      ],
+      "paymentMethod": "UPI",
+      "paymentStatus": "Unpaid",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "27/02/2026, 11:54:40",
+      "token": 148,
+      "total": 20
+    },
+    "-OmTHzIHrq-AmzJ0faUl": {
+      "discountAmount": 0,
+      "donationAmount": 5,
+      "items": [
+        {
+          "amount": 500,
+          "name": "Fried Rice",
+          "price": 50,
+          "qty": 10
+        }
+      ],
+      "paymentMethod": "UPI",
+      "paymentStatus": "Unpaid",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "27/02/2026, 14:21:43",
+      "token": 149,
+      "total": 505
+    },
+    "-OmTJ56_zI0mK0XScJay": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 15,
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 1
+        }
+      ],
+      "paymentMethod": "Cash",
+      "paymentStatus": "Pending Verification",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "27/02/2026, 14:26:34",
+      "token": 150,
+      "total": 15
+    },
+    "-OmTJenoZxdmWwXzITX8": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 165,
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 11
+        },
+        {
+          "amount": 75,
+          "name": "Samosa",
+          "price": 15,
+          "qty": 5
+        },
+        {
+          "amount": 39,
+          "name": "Cutlet",
+          "price": 13,
+          "qty": 3
+        }
+      ],
+      "paymentMethod": "UPI",
+      "paymentStatus": "Unpaid",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "27/02/2026, 14:29:03",
+      "token": 151,
+      "total": 279
+    },
+    "-OmTJpYG7RB-W8Tq8fuq": {
+      "discountAmount": 0,
+      "donationAmount": 5,
+      "items": [
+        {
+          "amount": 390,
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 26
+        }
+      ],
+      "paymentMethod": "Cash",
+      "paymentStatus": "Pending Verification",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "27/02/2026, 14:29:47",
+      "token": 152,
+      "total": 395
+    },
+    "-OmTkySJk7Ya56LRj58Z": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 45,
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 3
+        },
+        {
+          "amount": 45,
+          "name": "Samosa",
+          "price": 15,
+          "qty": 3
+        },
+        {
+          "amount": 52,
+          "name": "Cutlet",
+          "price": 13,
+          "qty": 4
+        }
+      ],
+      "paymentStatus": "Unpaid",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "27/02/2026, 16:32:45",
+      "token": 153,
+      "total": 142
+    },
+    "-OmTvsXpdmV4IeAjyGjQ": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 15,
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 1
+        }
+      ],
+      "paymentStatus": "Unpaid",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "27/02/2026, 17:20:24",
+      "token": 154,
+      "total": 15
+    },
+    "-OmUHzQIJxB-tR5oGM2D": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 60,
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 4
+        },
+        {
+          "amount": 90,
+          "name": "Samosa",
+          "price": 15,
+          "qty": 6
+        },
+        {
+          "amount": 39,
+          "name": "Cutlet",
+          "price": 13,
+          "qty": 3
+        }
+      ],
+      "paymentMethod": "Cash",
+      "paymentStatus": "Pending Verification",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "27/02/2026, 19:01:23",
+      "token": 155,
+      "total": 189
+    },
+    "-OmUPu19JyBGvSenmL_T": {
+      "items": [
+        {
+          "amount": 60,
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 4
+        },
+        {
+          "amount": 30,
+          "name": "Samosa",
+          "price": 15,
+          "qty": 2
+        },
+        {
+          "amount": 180,
+          "name": "Biriyani",
+          "price": 60,
+          "qty": 3
+        }
+      ],
+      "paymentStatus": "Unpaid",
+      "status": "Pending",
+      "time": "27/02/2026, 07:36:02",
+      "token": 157,
+      "total": 270
+    },
+    "-OmUPu1F1ja-Biq6py3v": {
+      "items": [
+        {
+          "amount": 60,
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 4
+        },
+        {
+          "amount": 30,
+          "name": "Samosa",
+          "price": 15,
+          "qty": 2
+        },
+        {
+          "amount": 180,
+          "name": "Biriyani",
+          "price": 60,
+          "qty": 3
+        }
+      ],
+      "paymentStatus": "Unpaid",
+      "status": "Pending",
+      "time": "27/02/2026, 07:36:02",
+      "token": 157,
+      "total": 270
+    },
+    "-OmUQWzdgEBhN17BEijC": {
+      "items": [
+        {
+          "amount": 30,
+          "name": "Samosa",
+          "price": 15,
+          "qty": 2
+        },
+        {
+          "amount": 15,
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 1
+        },
+        {
+          "amount": 60,
+          "name": "Biriyani",
+          "price": 60,
+          "qty": 1
+        }
+      ],
+      "paymentStatus": "Unpaid",
+      "status": "Pending",
+      "time": "27/02/2026, 07:38:45",
+      "token": 158,
+      "total": 105
+    },
+    "-OmUWdmLJXB6dEZeGddd": {
+      "discountAmount": 0,
+      "donationAmount": 5,
+      "items": [
+        {
+          "amount": 15,
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 1
+        },
+        {
+          "amount": 15,
+          "name": "Samosa",
+          "price": 15,
+          "qty": 1
+        }
+      ],
+      "paymentMethod": "Cash",
+      "paymentStatus": "Pending Verification",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "2/27/2026, 8:05:25 PM",
+      "token": 159,
+      "total": 35
+    },
+    "-OmVCWfrhPyoY4v7f_3S": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 30,
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 2
+        }
+      ],
+      "paymentMethod": "Cash",
+      "paymentStatus": "Pending Verification",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "27/02/2026, 23:17:06",
+      "token": 161,
+      "total": 30
+    },
+    "-OmVCbpKB3xJ2tAo5u76": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 90,
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 6
+        }
+      ],
+      "paymentMethod": "UPI",
+      "paymentStatus": "Unpaid",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "27/02/2026, 23:17:31",
+      "token": 162,
+      "total": 90
+    },
+    "-OmVD3_tlK42Fzjlkyuo": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 3015,
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 201
+        },
+        {
+          "amount": 2500050,
+          "name": "Fried Rice",
+          "price": 50,
+          "qty": 50001
+        },
+        {
+          "amount": 1200060,
+          "name": "Biriyani",
+          "price": 60,
+          "qty": 20001
+        }
+      ],
+      "paymentMethod": "Cash",
+      "paymentStatus": "Pending Verification",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "27/02/2026, 23:19:28",
+      "token": 163,
+      "total": 3703125
+    },
+    "-OmWXLYTSX8GXhlKavqJ": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 15,
+          "name": "Samosa",
+          "price": 15,
+          "qty": 1
+        }
+      ],
+      "paymentMethod": "Cash",
+      "paymentStatus": "Verified",
+      "status": "Prepared",
+      "supportUsed": false,
+      "time": "28/02/2026, 05:27:42",
+      "token": 164,
+      "total": 15
+    },
+    "-OmYbviK-TtT2gIBosjg": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 15,
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 1
+        }
+      ],
+      "paymentMethod": "UPI",
+      "paymentStatus": "Unpaid",
+      "status": "Prepared",
+      "supportUsed": false,
+      "time": "2/28/2026, 3:11:20 PM",
+      "token": 166,
+      "total": 15
+    },
+    "-Omd3GTClxP-794lxxLw": {
+      "items": [
+        {
+          "amount": 45,
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 3
+        }
+      ],
+      "paymentStatus": "Unpaid",
+      "status": "Pending",
+      "time": "01/03/2026, 11:47:04",
+      "token": 167,
+      "total": 45
+    },
+    "-OmdXhTHXXaN9caYyRMd": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 30,
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 2
+        },
+        {
+          "amount": 13,
+          "name": "Cutlet",
+          "price": 13,
+          "qty": 1
+        },
+        {
+          "amount": 12,
+          "name": "Blue Soda",
+          "price": 12,
+          "qty": 1
+        },
+        {
+          "amount": 50,
+          "name": "Fried Rice",
+          "price": 50,
+          "qty": 1
+        }
+      ],
+      "paymentMethod": "Cash",
+      "paymentStatus": "Pending Verification",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "1/3/2026, 6:46:14 PM",
+      "token": 168,
+      "total": 105
+    },
+    "-OmdXoMUTYBVEkg8Mv_G": {
+      "discountAmount": 30,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 30,
+          "name": "Kushka",
+          "price": 30,
+          "qty": 1
+        }
+      ],
+      "paymentMethod": "UPI",
+      "paymentStatus": "Unpaid",
+      "status": "Pending",
+      "supportUsed": true,
+      "time": "1/3/2026, 6:46:43 PM",
+      "token": 169,
+      "total": 30
+    },
+    "-Omm8G6p1LadEygR2SkH": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 50,
+          "name": "Fried Rice",
+          "price": 50,
+          "qty": 1
+        }
+      ],
+      "paymentStatus": "Unpaid",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "3/3/2026, 10:51:38 AM",
+      "token": 170,
+      "total": 50
+    },
+    "-OmnDOdAJNNyMlpBfBI1": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 15,
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 1
+        },
+        {
+          "amount": 15,
+          "name": "Samosa",
+          "price": 15,
+          "qty": 1
+        },
+        {
+          "amount": 13,
+          "name": "Cutlet",
+          "price": 13,
+          "qty": 1
+        },
+        {
+          "amount": 10,
+          "name": "Mango Juice",
+          "price": 10,
+          "qty": 1
+        },
+        {
+          "amount": 30,
+          "name": "Kushka",
+          "price": 30,
+          "qty": 1
+        }
+      ],
+      "paymentMethod": "Cash",
+      "paymentStatus": "Pending Verification",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "03/03/2026, 15:53:42",
+      "token": 171,
+      "total": 83
+    },
+    "-OmnvZsq1WqdOpNR7vAz": {
+      "items": [
+        {
+          "amount": 180,
+          "name": "item1",
+          "price": 15,
+          "qty": 12
+        },
+        {
+          "amount": 45,
+          "name": "item2",
+          "price": 15,
+          "qty": 3
+        },
+        {
+          "amount": 30,
+          "name": "item3",
+          "price": 10,
+          "qty": 3
+        }
+      ],
+      "paymentStatus": "Unpaid",
+      "status": "Pending",
+      "time": "03/03/2026, 07:11:13",
+      "token": 172,
+      "total": 255
+    },
+    "-Omo72AaT8v_LCipU1FL": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 30,
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 2
+        },
+        {
+          "amount": 30,
+          "name": "Samosa",
+          "price": 15,
+          "qty": 2
+        },
+        {
+          "amount": 26,
+          "name": "Cutlet",
+          "price": 13,
+          "qty": 2
+        },
+        {
+          "amount": 50,
+          "name": "Fried Rice",
+          "price": 50,
+          "qty": 1
+        },
+        {
+          "amount": 60,
+          "name": "Biriyani",
+          "price": 60,
+          "qty": 1
+        }
+      ],
+      "paymentMethod": "Cash",
+      "paymentStatus": "Pending Verification",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "03/03/2026, 20:05:35",
+      "token": 173,
+      "total": 196
+    },
+    "-Omo7BSQKmv7NepIco5N": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 50,
+          "name": "Fried Rice",
+          "price": 50,
+          "qty": 1
+        }
+      ],
+      "paymentMethod": "Cash",
+      "paymentStatus": "Pending Verification",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "03/03/2026, 20:06:13",
+      "token": 174,
+      "total": 50
+    },
+    "-Omo7F4s5Vt7vABPdHBx": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 50,
+          "name": "Fried Rice",
+          "price": 50,
+          "qty": 1
+        }
+      ],
+      "paymentMethod": "UPI",
+      "paymentStatus": "Unpaid",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "03/03/2026, 20:06:28",
+      "token": 175,
+      "total": 50
+    },
+    "-OmoVfs2XgQZmM43DFsA": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 15,
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 1
+        },
+        {
+          "amount": 15,
+          "name": "Samosa",
+          "price": 15,
+          "qty": 1
+        },
+        {
+          "amount": 13,
+          "name": "Cutlet",
+          "price": 13,
+          "qty": 1
+        }
+      ],
+      "paymentMethod": "Cash",
+      "paymentStatus": "Pending Verification",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "3/3/2026, 9:53:13 PM",
+      "token": 176,
+      "total": 43
+    },
+    "-OmrgpnlNw8LgaXUXUxk": {
+      "items": [
+        {
+          "id": "item1",
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 1
+        },
+        {
+          "id": "item3",
+          "name": "Mango Juice",
+          "price": 10,
+          "qty": 1
+        }
+      ],
+      "paymentStatus": "Verified",
+      "status": "Pending",
+      "time": 1772608511114,
+      "token": 177,
+      "total": 25,
+      "uid": "testUser"
+    },
+    "-Oms9Oe2MxOVtLWmxlzZ": {
+      "items": [
+        {
+          "id": "item2",
+          "name": "Samosa",
+          "price": 15,
+          "qty": 1
+        }
+      ],
+      "paymentStatus": "Verified",
+      "status": "Pending",
+      "time": 1772616259127,
+      "token": 178,
+      "total": 17,
+      "uid": "testUser"
+    },
+    "-OmsDtKdyQfcTSVIZHOf": {
+      "items": [
+        {
+          "id": "item3",
+          "name": "Mango Juice",
+          "price": 10,
+          "qty": 4
+        }
+      ],
+      "paymentStatus": "Verified",
+      "status": "Pending",
+      "time": 1772617437517,
+      "token": 179,
+      "total": 42,
+      "uid": "testUser"
+    },
+    "-OmsTJ_2R169j6VDgoc8": {
+      "items": [
+        {
+          "id": "item1",
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 2
+        },
+        {
+          "id": "item2",
+          "name": "Samosa",
+          "price": 15,
+          "qty": 2
+        }
+      ],
+      "paymentStatus": "Verified",
+      "status": "Pending",
+      "time": 1772621481296,
+      "token": 180,
+      "total": 62,
+      "uid": "testUser"
+    },
+    "-OmvdQoAEaZ72CCJsM6n": {
+      "items": [
+        {
+          "id": "item2",
+          "name": "Samosa",
+          "price": 15,
+          "qty": 7
+        }
+      ],
+      "paymentStatus": "Verified",
+      "status": "Pending",
+      "time": 1772674726679,
+      "token": 181,
+      "total": 107,
+      "uid": "yB1jat45g9b1W09vzPJtW5xNQkJ2"
+    },
+    "-OmviGqnAGs3lPd9_Jcp": {
+      "items": [
+        {
+          "id": "item2",
+          "name": "Samosa",
+          "price": 15,
+          "qty": 7
+        }
+      ],
+      "paymentStatus": "Verified",
+      "status": "Pending",
+      "time": 1772675996607,
+      "token": 182,
+      "total": 107,
+      "uid": "yB1jat45g9b1W09vzPJtW5xNQkJ2"
+    },
+    "-OmvizByS2AdtWRsg82a": {
+      "items": [
+        {
+          "id": "item1",
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 3
+        }
+      ],
+      "paymentStatus": "Verified",
+      "status": "Pending",
+      "time": 1772676182047,
+      "token": 183,
+      "total": 47,
+      "uid": "yB1jat45g9b1W09vzPJtW5xNQkJ2"
+    },
+    "-OmvlM-lbt6cHHz0XKGj": {
+      "items": [
+        {
+          "id": "item1",
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 3
+        }
+      ],
+      "paymentStatus": "Verified",
+      "status": "Pending",
+      "time": 1772676803858,
+      "token": 184,
+      "total": 47,
+      "uid": "yB1jat45g9b1W09vzPJtW5xNQkJ2"
+    },
+    "-OmvmJ29oPY_aiMVHChC": {
+      "items": [
+        {
+          "id": "item1",
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 3
+        }
+      ],
+      "paymentStatus": "Verified",
+      "status": "Pending",
+      "time": 1772677053867,
+      "token": 185,
+      "total": 47,
+      "uid": "yB1jat45g9b1W09vzPJtW5xNQkJ2"
+    },
+    "-Omvn02-aWzA6o9LsRR8": {
+      "items": [
+        {
+          "id": "item1",
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 4
+        }
+      ],
+      "paymentStatus": "Verified",
+      "status": "Pending",
+      "time": 1772677238177,
+      "token": 186,
+      "total": 62,
+      "uid": "yB1jat45g9b1W09vzPJtW5xNQkJ2"
+    },
+    "-Omwg90Dk0i2h2PW2mNz": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 45,
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 3
+        },
+        {
+          "amount": 15,
+          "name": "Samosa",
+          "price": 15,
+          "qty": 1
+        }
+      ],
+      "paymentMethod": "Cash",
+      "paymentStatus": "Pending Verification",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "05/03/2026, 12:00:17",
+      "token": 187,
+      "total": 60
+    },
+    "-OmxdhZMxh_OSwG0Ywmx": {
+      "items": [
+        {
+          "id": "item1",
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 1
+        },
+        {
+          "id": "item2",
+          "name": "Samosa",
+          "price": 15,
+          "qty": 1
+        }
+      ],
+      "paymentStatus": "Verified",
+      "status": "Pending",
+      "time": 1772708354009,
+      "token": 188,
+      "total": 32,
+      "uid": "yB1jat45g9b1W09vzPJtW5xNQkJ2"
+    },
+    "-Omxh4WN3LdGGR6EWAF2": {
+      "items": [
+        {
+          "id": "item1",
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 2
+        }
+      ],
+      "paymentStatus": "Verified",
+      "status": "Pending",
+      "time": 1772709238553,
+      "token": 189,
+      "total": 32,
+      "uid": "yB1jat45g9b1W09vzPJtW5xNQkJ2"
+    },
+    "-Omxhai6Nv1OHsFm-Hm6": {
+      "items": [
+        {
+          "id": "item1",
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 3
+        }
+      ],
+      "paymentStatus": "Verified",
+      "status": "Pending",
+      "time": 1772709374536,
+      "token": 190,
+      "total": 47,
+      "uid": "yB1jat45g9b1W09vzPJtW5xNQkJ2"
+    },
+    "-OmyG_1rRJr0fddX2NIN": {
+      "items": [
+        {
+          "id": "item1",
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 3
+        }
+      ],
+      "paymentStatus": "Verified",
+      "status": "Pending",
+      "time": 1772718804599,
+      "token": 191,
+      "total": 47,
+      "uid": "yB1jat45g9b1W09vzPJtW5xNQkJ2"
+    },
+    "-OmyIC0WBNel2_ot1a2r": {
+      "items": [
+        {
+          "id": "item1",
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 2
+        }
+      ],
+      "paymentStatus": "Verified",
+      "status": "Pending",
+      "time": 1772719230497,
+      "token": 192,
+      "total": 32,
+      "uid": "yB1jat45g9b1W09vzPJtW5xNQkJ2"
+    },
+    "-On7ILLu_pY3HwwqV314": {
+      "items": [
+        {
+          "id": "item2",
+          "name": "Samosa",
+          "price": 15,
+          "qty": 1
+        }
+      ],
+      "paymentStatus": "Verified",
+      "status": "Pending",
+      "time": 1772887041028,
+      "token": 193,
+      "total": 17,
+      "uid": "yB1jat45g9b1W09vzPJtW5xNQkJ2"
+    },
+    "-OnAOd6pP6goqTwvgXZY": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 15,
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 1
+        },
+        {
+          "amount": 15,
+          "name": "Samosa",
+          "price": 15,
+          "qty": 1
+        },
+        {
+          "amount": 12,
+          "name": "Blue Soda",
+          "price": 12,
+          "qty": 1
+        },
+        {
+          "amount": 12,
+          "name": "Green Soda",
+          "price": 12,
+          "qty": 1
+        },
+        {
+          "amount": 50,
+          "name": "Fried Rice",
+          "price": 50,
+          "qty": 1
+        },
+        {
+          "amount": 60,
+          "name": "Biriyani",
+          "price": 60,
+          "qty": 1
+        }
+      ],
+      "paymentMethod": "UPI",
+      "paymentStatus": "Unpaid",
+      "status": "Prepared",
+      "supportUsed": false,
+      "time": "08/03/2026, 08:33:42",
+      "token": 194,
+      "total": 164
+    },
+    "-OnCAVHbk_SrGB-Pxl4V": {
+      "items": [
+        {
+          "id": "item1",
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 1
+        }
+      ],
+      "paymentStatus": "Verified",
+      "status": "Pending",
+      "time": 1772968871542,
+      "token": 195,
+      "total": 17,
+      "uid": "yB1jat45g9b1W09vzPJtW5xNQkJ2"
+    },
+    "-OnGZRPAmRmpRnl976Fl": {
+      "discountAmount": 30,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 15,
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 1
+        },
+        {
+          "amount": 15,
+          "name": "Samosa",
+          "price": 15,
+          "qty": 1
+        },
+        {
+          "amount": 13,
+          "name": "Cutlet",
+          "price": 13,
+          "qty": 1
+        }
+      ],
+      "paymentMethod": "Cash",
+      "paymentStatus": "Pending Verification",
+      "status": "Pending",
+      "supportUsed": true,
+      "time": "09/03/2026, 13:18:39",
+      "token": 196,
+      "total": 43
+    },
+    "-OnGZVOTsPyI9px4GlDC": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 30,
+          "name": "Kushka",
+          "price": 30,
+          "qty": 1
+        }
+      ],
+      "paymentMethod": "Cash",
+      "paymentStatus": "Pending Verification",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "09/03/2026, 13:18:56",
+      "token": 197,
+      "total": 30
+    },
+    "-OnHxDlCymI2RF-TEWxR": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 15,
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 1
+        },
+        {
+          "amount": 12,
+          "name": "Blue Soda",
+          "price": 12,
+          "qty": 1
+        }
+      ],
+      "paymentMethod": "Cash",
+      "paymentStatus": "Pending Verification",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "09/03/2026, 19:46:31",
+      "token": 198,
+      "total": 27
+    },
+    "-OnMQsEW57jHbw14bC58": {
+      "discountAmount": 0,
+      "donationAmount": 5,
+      "items": [
+        {
+          "amount": 75,
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 5
+        },
+        {
+          "amount": 26,
+          "name": "Cutlet",
+          "price": 13,
+          "qty": 2
+        }
+      ],
+      "paymentMethod": "Cash",
+      "paymentStatus": "Pending Verification",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "3/10/2026, 4:38:55 PM",
+      "token": 199,
+      "total": 106
+    },
+    "-OnNhnC5bSNpwcjOP03k": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 30,
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 2
+        },
+        {
+          "amount": 15,
+          "name": "Samosa",
+          "price": 15,
+          "qty": 1
+        },
+        {
+          "amount": 26,
+          "name": "Cutlet",
+          "price": 13,
+          "qty": 2
+        }
+      ],
+      "paymentMethod": "Cash",
+      "paymentStatus": "Pending Verification",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "10/03/2026, 22:36:51",
+      "token": 200,
+      "total": 71
+    },
+    "-OnNhrZmolVZOVCz812W": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 30,
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 2
+        }
+      ],
+      "paymentMethod": "UPI",
+      "paymentStatus": "Unpaid",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "10/03/2026, 22:37:09",
+      "token": 201,
+      "total": 30
+    },
+    "-OnQFA9vSObv7zy3aS2U": {
+      "items": [
+        {
+          "id": "item4",
+          "name": "Orange Juice",
+          "price": 12,
+          "qty": 1
+        },
+        {
+          "id": "item5",
+          "name": "Biriyani",
+          "price": 55,
+          "qty": 3
+        }
+      ],
+      "paymentStatus": "Verified",
+      "status": "Pending",
+      "time": 1773204976514,
+      "token": 1,
+      "total": 179,
+      "uid": "yB1jat45g9b1W09vzPJtW5xNQkJ2"
+    },
+    "-OnQFd358IlY3elhPiIT": {
+      "items": [
+        {
+          "id": "item5",
+          "name": "Biriyani",
+          "price": 55,
+          "qty": 5
+        },
+        {
+          "id": "item6",
+          "name": "Khushka",
+          "price": 30,
+          "qty": 0
+        }
+      ],
+      "paymentStatus": "Verified",
+      "status": "Pending",
+      "time": 1773205098957,
+      "token": 2,
+      "total": 277,
+      "uid": "yB1jat45g9b1W09vzPJtW5xNQkJ2"
+    },
+    "-OnQHLFplfZVj_el3VuG": {
+      "items": [
+        {
+          "id": "item5",
+          "name": "Biriyani",
+          "price": 55,
+          "qty": 2
+        }
+      ],
+      "paymentStatus": "Verified",
+      "status": "Pending",
+      "time": 1773205546235,
+      "token": 3,
+      "total": 112,
+      "uid": "yB1jat45g9b1W09vzPJtW5xNQkJ2"
+    },
+    "-OnQUWKhzW4ihNOSMAFV": {
+      "items": [
+        {
+          "id": "item5",
+          "name": "Biriyani",
+          "price": 55,
+          "qty": 0
+        },
+        {
+          "id": "item6",
+          "name": "Khushka",
+          "price": 30,
+          "qty": 2
+        }
+      ],
+      "paymentStatus": "Verified",
+      "status": "Pending",
+      "time": 1773208999699,
+      "token": 4,
+      "total": 62,
+      "uid": "yB1jat45g9b1W09vzPJtW5xNQkJ2"
+    },
+    "-OnVcf4ODYDyYkbDHxS3": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 15,
+          "name": "Samosa",
+          "price": 15,
+          "qty": 1
+        },
+        {
+          "amount": 12,
+          "name": "Blue Soda",
+          "price": 12,
+          "qty": 1
+        }
+      ],
+      "paymentMethod": "Cash",
+      "paymentStatus": "Pending Verification",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "12/03/2026, 11:31:24",
+      "token": 202,
+      "total": 27
+    },
+    "-OnVcnSRWCKDLDQJURus": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 60,
+          "name": "Biriyani",
+          "price": 60,
+          "qty": 1
+        }
+      ],
+      "paymentMethod": "UPI",
+      "paymentStatus": "Unpaid",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "12/03/2026, 11:31:59",
+      "token": 203,
+      "total": 60
+    },
+    "-Onhn40b_mlbxLi5mD43": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 15,
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 1
+        }
+      ],
+      "paymentMethod": "Cash",
+      "paymentStatus": "Pending Verification",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "15/03/2026, 00:51:55",
+      "token": 204,
+      "total": 15
+    },
+    "-Onw6XZ9zC-f26zf3-xz": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 15,
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 1
+        },
+        {
+          "amount": 15,
+          "name": "Samosa",
+          "price": 15,
+          "qty": 1
+        },
+        {
+          "amount": 13,
+          "name": "Cutlet",
+          "price": 13,
+          "qty": 1
+        }
+      ],
+      "paymentMethod": "Cash",
+      "paymentStatus": "Pending Verification",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "3/17/2026, 5:06:01 PM",
+      "token": 205,
+      "total": 43
+    },
+    "-OoKNdzJdNU8kBY0i-Z8": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 12,
+          "name": "Blue Soda",
+          "price": 12,
+          "qty": 1
+        },
+        {
+          "amount": 12,
+          "name": "Orange Soda",
+          "price": 12,
+          "qty": 1
+        },
+        {
+          "amount": 10,
+          "name": "Mango Juice",
+          "price": 10,
+          "qty": 1
+        },
+        {
+          "amount": 30,
+          "name": "Kushka",
+          "price": 30,
+          "qty": 1
+        }
+      ],
+      "paymentMethod": "Cash",
+      "paymentStatus": "Pending Verification",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "22/03/2026, 17:21:18",
+      "token": 206,
+      "total": 64
+    },
+    "-OoL8LrbfAM7BIlcotYA": {
+      "discountAmount": 30,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 15,
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 1
+        },
+        {
+          "amount": 15,
+          "name": "Samosa",
+          "price": 15,
+          "qty": 1
+        },
+        {
+          "amount": 12,
+          "name": "Blue Soda",
+          "price": 12,
+          "qty": 1
+        },
+        {
+          "amount": 12,
+          "name": "Green Soda",
+          "price": 12,
+          "qty": 1
+        },
+        {
+          "amount": 12,
+          "name": "Orange Soda",
+          "price": 12,
+          "qty": 1
+        },
+        {
+          "amount": 10,
+          "name": "Mango Juice",
+          "price": 10,
+          "qty": 1
+        },
+        {
+          "amount": 12,
+          "name": "7 Up",
+          "price": 12,
+          "qty": 1
+        },
+        {
+          "amount": 50,
+          "name": "Fried Rice",
+          "price": 50,
+          "qty": 1
+        },
+        {
+          "amount": 60,
+          "name": "Biriyani",
+          "price": 60,
+          "qty": 1
+        },
+        {
+          "amount": 30,
+          "name": "Kushka",
+          "price": 30,
+          "qty": 1
+        }
+      ],
+      "paymentStatus": "Unpaid",
+      "status": "Pending",
+      "supportUsed": true,
+      "time": "3/22/2026, 8:54:04 PM",
+      "token": 207,
+      "total": 228
+    },
+    "-OoQOoWwQfk7kuA34DzK": {
+      "discountAmount": 0,
+      "donationAmount": 0,
+      "items": [
+        {
+          "amount": 50,
+          "name": "Fried Rice",
+          "price": 50,
+          "qty": 1
+        },
+        {
+          "amount": 60,
+          "name": "Biriyani",
+          "price": 60,
+          "qty": 1
+        }
+      ],
+      "paymentStatus": "Unpaid",
+      "status": "Pending",
+      "supportUsed": false,
+      "time": "3/23/2026, 9:24:06 PM",
+      "token": 208,
+      "total": 110
+    },
+    "-OoeVSF3M9DXCYsrEn5T": {
+      "createdAt": "26/3/2026, 7:51:10 pm",
+      "items": [
+        {
+          "id": "item3",
+          "name": "Mango Juice",
+          "price": 10,
+          "qty": 1
+        }
+      ],
+      "paymentStatus": "Verified",
+      "status": "Served",
+      "time": 1774534870895,
+      "token": 1,
+      "total": 12,
+      "uid": "yB1jat45g9b1W09vzPJtW5xNQkJ2"
+    },
+    "-OoejHaB_PkOm8p3ozTQ": {
+      "createdAt": "26/3/2026, 8:55:59 pm",
+      "items": [
+        {
+          "id": "item4",
+          "name": "Orange Juice",
+          "price": 12,
+          "qty": 1
+        }
+      ],
+      "paymentStatus": "Verified",
+      "status": "Served",
+      "time": 1774538759898,
+      "token": 2,
+      "total": 14,
+      "uid": "yB1jat45g9b1W09vzPJtW5xNQkJ2"
+    },
+    "-OomiBowjR5jC-W3UBSW": {
+      "createdAt": "28/3/2026, 10:04:45 am",
+      "items": [
+        {
+          "id": "item1",
+          "name": "Egg Puff",
+          "price": 15,
+          "qty": 3
+        }
+      ],
+      "paymentStatus": "Verified",
+      "status": "Preparing",
+      "time": 1774672485932,
+      "token": 1,
+      "total": 47,
+      "uid": "yB1jat45g9b1W09vzPJtW5xNQkJ2"
+    }
+  },
+  "servedOrders": {
+    "-OoejL6BQsiaMwnYXPiB": {
+      "createdAt": "26/3/2026, 8:55:59 pm",
+      "items": [
+        {
+          "id": "item4",
+          "name": "Orange Juice",
+          "price": 12,
+          "qty": 1
+        }
+      ],
+      "paymentStatus": "Verified",
+      "status": "Served",
+      "time": 1774538759898,
+      "token": 2,
+      "total": 14,
+      "uid": "yB1jat45g9b1W09vzPJtW5xNQkJ2"
+    }
+  },
+  "shopStatus": {
+    "closesAt": -1,
+    "isOpen": true
+  },
+  "users": {
+    "rfM1LBfAWtT59DtLX7hCc0y21GF2": {
+      "createdAt": 1772233078508,
+      "email": "user1@gmaill.com",
+      "name": "user1",
+      "role": "owner"
+    },
+    "yB1jat45g9b1W09vzPJtW5xNQkJ2": {
+      "createdAt": 1772233838821,
+      "email": "user2@gmail.com",
+      "name": "user2",
+      "role": "student"
+    }
+  }
+}

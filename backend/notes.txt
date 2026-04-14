@@ -1,0 +1,11 @@
+This gives us:
+
+express → server
+
+cors → allow frontend
+
+razorpay → payments
+
+dotenv → environment variables
+
+firebase-admin → secure DB access

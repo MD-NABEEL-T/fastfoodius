@@ -1,3 +1,5 @@
+any other important features that we should implement for our canteen any other things tel me everything or shoudl we just deploy it and test it 
+so if this app works out we will probably ask the owner to give the platform fee and we could earn a good amount from it .
 🎯 Define MVP Goal
 
 Students can order → pay securely → staff sees verified payment → food is served → data is tracked.

@@ -75,3 +75,223 @@ body {
     font-size: 1.2rem;
   }
 }
+
+.order-amount {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+
+
+/* Orders Grid */
+.orders-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 18px;
+}
+
+/* Order Card */
+.order-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+  transition: 0.2s ease;
+}
+
+.order-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.08);
+}
+
+.order-card h5 {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+/* Meta row */
+.order-meta {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.order-amount {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+/* Items */
+.order-items {
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+}
+
+/* Action buttons */
+.order-actions .btn {
+  margin-right: 6px;
+  margin-bottom: 6px;
+}
+
+
+.summary-card {
+  padding: 18px;
+  border-radius: 14px;
+  color: white;
+  text-align: center;
+  font-weight: 600;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+.summary-card h5 {
+  font-size: 1.6rem;
+  margin: 0;
+}
+
+.summary-card p {
+  margin: 4px 0 0;
+  font-size: 0.9rem;
+}
+
+/* -------- MENU GRID -------- */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.menu-item-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  transition: all 0.3s ease;
+  border-left: 4px solid #667eea;
+}
+
+.menu-item-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.menu-item-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.menu-item-stock {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.btn-stock-control {
+  width: 36px;
+  height: 36px;
+  border: 2px solid #667eea;
+  background-color: white;
+  color: #667eea;
+  border-radius: 50%;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.btn-stock-control:hover {
+  background-color: #667eea;
+  color: white;
+  transform: scale(1.1);
+}
+
+.btn-stock-control:active {
+  transform: scale(0.95);
+}
+
+.stock-display {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #667eea;
+  min-width: 50px;
+  text-align: center;
+}
+
+/* LOW STOCK WARNING */
+.low-stock-warning {
+  margin-top: 10px;
+  padding: 8px 12px;
+  background-color: #fff3cd;
+  color: #856404;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* DISABLED STOCK BUTTON */
+.btn-stock-control:disabled {
+  background-color: #e9ecef;
+  color: #adb5bd;
+  cursor: not-allowed;
+  border-color: #dee2e6;
+}
+
+.btn-stock-control:disabled:hover {
+  background-color: #e9ecef;
+  color: #adb5bd;
+  transform: none;
+}
+
+/* -------- TAB NAVIGATION -------- */
+.staff-tabs {
+  display: flex;
+  gap: 10px;
+  border-bottom: 2px solid #e9ecef;
+  padding-bottom: 12px;
+}
+
+.tab-btn {
+  padding: 10px 20px;
+  border: none;
+  background-color: transparent;
+  color: #666;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -15px;
+}
+
+.tab-btn:hover {
+  color: #667eea;
+}
+
+.tab-btn.active {
+  color: #667eea;
+  border-bottom-color: #667eea;
+}
+
+/* -------- ORDER BADGES -------- */
+.badge-preparing {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.badge-ready {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.badge-served {
+  background-color: #e2e3e5;
+  color: #383d41;
+}

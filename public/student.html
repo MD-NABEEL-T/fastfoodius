@@ -5,8 +5,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fast & Foodious</title>
-
+  <title> Fast & Foodious </title>
+  <link rel="icon" type="image/x-icon" href="./favicon.ico">
   <link rel="stylesheet" href="student.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
@@ -14,20 +14,44 @@
 <body>
 
   <!-- NAVBAR -->
-<nav class="navbar navbar-dark bg-dark px-3">
-  <div class="d-flex justify-content-between w-100 align-items-center">
-    <span class="navbar-brand mb-0 h1">🍔 Fast & Foodious</span>
+  <nav class="navbar navbar-dark bg-dark px-3">
+    <div class="d-flex justify-content-between w-100 align-items-center">
+      <span class="navbar-brand mb-0 h1">🍔 Fast & Foodious</span>
 
-    <div class="d-flex align-items-center gap-3">
-      <span id="welcomeText" class="text-light small"></span>
-      <button id="logoutBtn" class="btn btn-sm btn-outline-light">
-        Logout
-      </button>
+      <div class="d-flex align-items-center gap-3">
+        <span id="welcomeText" class="text-light small"></span>
+        <button id="logoutBtn" class="btn btn-sm btn-outline-light">
+          Logout
+        </button>
+      </div>
     </div>
-  </div>
-</nav>
 
-  <!-- SEARCH -->
+  </nav>
+
+  <!-- SHOP STATUS BANNER -->
+  <div id="shopBanner" style="display: none;"></div>
+
+<div class="container mt-3">
+  <div class="student-tabs">
+
+    <button class="tab-btn active" id="menuTab">
+      🍔 Menu
+    </button>
+
+    <button class="tab-btn" id="ordersTab">
+      📦 My Orders
+    </button>
+
+  </div>
+</div>
+<div id="ordersSection" class="container mt-4 d-none">
+  <h5 class="mb-4">📋 My Orders</h5>
+  <div id="myOrdersList"></div>
+</div>
+
+  <div id="menuSection" class="container mt-3">
+
+    <!-- SEARCH -->
   <div class="container mt-3">
     <input type="text" id="searchInput" class="form-control" placeholder="Search food...">
   </div>
@@ -52,7 +76,7 @@
 
     <!-- SNACKS -->
     <div class="tab-pane fade show active" id="snacks">
-      <div class="menu-item" data-name="Egg Puff" data-price="15">
+      <!-- <div class="menu-item" data-name="Egg Puff" data-price="15">
         <img src="images/eggpuff2.jpg">
         <div class="details">
           <h5>Egg Puff</h5>
@@ -76,12 +100,12 @@
             <button class="plus">+</button>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
 
     <!-- JUICES -->
     <div class="tab-pane fade" id="juices">
-      <div class="menu-item" data-name="Mango Juice" data-price="10">
+      <!-- <div class="menu-item" data-name="Mango Juice" data-price="10">
         <img src="images/mangojuice.jpg">
         <div class="details">
           <h5>Mango Juice</h5>
@@ -92,12 +116,12 @@
             <button class="plus">+</button>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
 
     <!-- LUNCH -->
     <div class="tab-pane fade" id="lunch">
-      <div class="menu-item" data-name="Biriyani" data-price="60">
+      <!-- <div class="menu-item" data-name="Biriyani" data-price="60">
         <img src="images/hyderabadibiriyani.jpg">
         <div class="details">
           <h5>Biriyani</h5>
@@ -108,7 +132,7 @@
             <button class="plus">+</button>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
 
   </div>
@@ -121,20 +145,73 @@
     <button id="checkoutBtn" class="btn btn-light">Proceed to Payment</button>
   </div>
 
+  </div>
+
+  <div id="successScreen" class="container text-center mt-5 d-none">
+    <div class="card shadow p-4">
+      <h3 class="text-success">✅ Payment Successful</h3>
+      <p class="mt-3">Your Token Number</p>
+      <h1 id="tokenNumber" class="display-3 fw-bold"></h1>
+      <p class="mt-3">Please show this token at the counter</p>
+    </div>
+  </div>
+  
   <!-- PAYMENT MODAL -->
   <div class="modal fade" id="paymentModal">
     <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content p-3">
-        <h5>Order Summary</h5>
-        <ul id="orderSummary"></ul>
-        <h6 id="modalTotal"></h6>
-        <button id="confirmOrder" class="btn btn-success w-100 mt-3">
-          Confirm & Pay
-        </button>
+      <div class="modal-content payment-modal">
+        <div class="modal-header border-0 pb-0">
+          <h5 class="modal-title fw-bold">Order Summary</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        
+        <div class="modal-body">
+          <!-- Items Section -->
+          <div class="order-items-section">
+            <div id="orderSummary" class="order-items-list"></div>
+          </div>
+
+          <!-- Divider -->
+          <div class="summary-divider"></div>
+
+          <!-- Breakdown Section -->
+          <div class="order-breakdown">
+            <div class="breakdown-row">
+              <span>Food Total</span>
+              <span id="foodTotal" class="breakdown-amount"></span>
+            </div>
+            <div class="breakdown-row">
+              <span>Platform Fee</span>
+              <span id="platformFee" class="breakdown-amount"></span>
+            </div>
+          </div>
+
+          <!-- Divider -->
+          <div class="summary-divider"></div>
+
+          <!-- Final Amount Section -->
+          <div class="order-payable">
+            <div class="payable-label">Total Payable</div>
+            <div class="payable-amount" id="modalTotal"></div>
+          </div>
+        </div>
+
+        <div class="modal-footer border-0 pt-0">
+          <button id="confirmOrder" class="btn btn-confirm btn-lg w-100">
+            Confirm & Pay
+          </button>
+        </div>
       </div>
     </div>
   </div>
-
+<!-- GLOBAL LOADING OVERLAY -->
+<div id="loadingOverlay" class="loading-overlay d-none">
+  <div class="spinner-container">
+    <div class="spinner"></div>
+    <p class="loading-text">Processing your request...</p>
+  </div>
+</div>
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script type="module" src="student.js"></script>
   <script type="module">
@@ -150,37 +227,59 @@
 
   <!-- logout script -->
   <script type="module">
-  import { auth } from "./firebase-config.js";
-  import { signOut } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
+    import { auth } from "./firebase-config.js";
+    import { signOut } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
 
-  document.getElementById("logoutBtn").addEventListener("click", async () => {
-    await signOut(auth);
-    window.location.href = "index.html";
-  });
-</script>
-<script type="module">
-  import { auth } from "./firebase-config.js";
-  import { signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
-  import { getDatabase, ref, get } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-database.js";
+    document.getElementById("logoutBtn").addEventListener("click", async () => {
+      showLoading("Logging you out...");
+      await signOut(auth);
+      window.location.href = "index.html";
+    });
+  </script>
+  <script type="module">
+    import { auth } from "./firebase-config.js";
+    import { signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
+    import { getDatabase, ref, get } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-database.js";
 
-  const welcomeText = document.getElementById("welcomeText");
+    const welcomeText = document.getElementById("welcomeText");
 
-  onAuthStateChanged(auth, async (user) => {
-    if (user) {
-      const db = getDatabase();
-      const snapshot = await get(ref(db, "users/" + user.uid));
+    onAuthStateChanged(auth, async (user) => {
+      if (user) {
+        const db = getDatabase();
+        const snapshot = await get(ref(db, "users/" + user.uid));
 
-      if (snapshot.exists()) {
-        const name = snapshot.val().name;
-        welcomeText.textContent = `Hi, ${name}`;
+        if (snapshot.exists()) {
+          const name = snapshot.val().name;
+          welcomeText.textContent = `Hi, ${name}`;
+        }
       }
-    }
-  });
+    });
+  </script>
+  <script src="loadingHelper.js"></script>
 
-  document.getElementById("logoutBtn").addEventListener("click", async () => {
-    await signOut(auth);
-    window.location.href = "index.html";
-  });
+  <!-- GLOBAL LOADING OVERLAY -->
+  <div id="loadingOverlay" class="loading-overlay d-none">
+    <div class="spinner-container">
+      <div class="spinner"></div>
+      <p class="loading-text">Processing your request...</p>
+    </div>
+  </div>
+  <script>
+  function checkInternet() {
+if (!navigator.onLine) {
+  localStorage.setItem("lastPage", window.location.href);
+  window.location.href = "offline.html";
+}
+  }
+
+  // Run on load
+  checkInternet();
+
+  // Listen for connection loss
+window.addEventListener("offline", () => {
+  localStorage.setItem("lastPage", window.location.href);
+  window.location.href = "offline.html";
+});
 </script>
 </body>
 

@@ -52,13 +52,15 @@
 
   const form = document.getElementById("loginForm");
 
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
 
-    const email = form.email.value;
-    const password = form.password.value;
+  const email = form.email.value;
+  const password = form.password.value;
 
-    try {
+  showLoading("Signing you in..."); // ADD THIS LINE
+
+  try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
 
@@ -71,10 +73,19 @@
       }
 
     } catch (error) {
+      hideLoading();
       alert(error.message);
     }
   });
 </script>
+<script src="loadingHelper.js"></script>
 
+<!-- GLOBAL LOADING OVERLAY -->
+<div id="loadingOverlay" class="loading-overlay d-none">
+  <div class="spinner-container">
+    <div class="spinner"></div>
+    <p class="loading-text">Processing your request...</p>
+  </div>
+</div>
 </body>
 </html>

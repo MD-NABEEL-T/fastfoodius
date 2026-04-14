@@ -1,0 +1,146 @@
+1. The main payment gateway fee
+
+For Razorpay standard pricing in India:
+
+Typical rates (approx):
+
+UPI: up to ~2%
+
+Credit / Debit cards: up to ~2%
+
+Net banking / wallets: up to ~2%
+
+So your assumption of around 2% is basically correct.
+
+But there are two details many people miss:
+
+GST on the fee
+
+Razorpay charges 18% GST on their fee.
+
+Example:
+
+Student pays ₹100
+Gateway fee (2%) = ₹2
+GST on fee (18%) ≈ ₹0.36
+
+Total deduction ≈ ₹2.36
+
+Canteen receives ≈ ₹97.64
+
+So effectively it’s about 2.36%, not exactly 2%.
+
+2. No monthly subscription
+
+Good news:
+
+No setup fee
+
+No monthly fee
+
+No annual fee
+
+You only pay per transaction.
+
+3. Settlement timing
+
+Money doesn’t go instantly to the bank.
+
+Typical settlement:
+
+T+2 working days
+
+Example:
+Payment on Monday → bank by Wednesday/Thursday.
+
+4. Refund costs
+
+If you refund a customer:
+
+Razorpay usually does NOT return the gateway fee.
+
+Example:
+
+Customer paid ₹100
+You refund ₹100
+
+You still lose the ₹2–₹2.36 fee.
+
+For a canteen this usually isn’t a big issue.
+
+5. Chargebacks / disputes (rare but real)
+
+If a card user disputes a payment:
+
+Banks may charge ₹300–₹1000 dispute fee.
+
+But in a college canteen with UPI, this almost never happens.
+
+6. Hidden charges?
+
+There aren’t really “hidden” ones, but some optional things exist:
+
+Possible extra costs if you use advanced features:
+
+International cards → ~3%
+
+Instant settlements → small fee
+
+Smart routing / advanced tools → optional
+
+Your canteen app probably won’t use these.
+
+7. Your platform fee idea
+
+Your thinking is actually common.
+
+Example in your app:
+
+Food price = ₹100
+Platform fee (2%) = ₹2
+
+Customer pays ₹102.
+
+Razorpay fee (≈2.36% of ₹102) ≈ ₹2.40
+
+Canteen receives about ₹99.60.
+
+So the canteen almost gets the full ₹100.
+
+This makes it easier to convince them:
+
+They don’t lose margin
+
+Students pay small convenience fee
+
+They get faster orders and less queue.
+
+8. One rule you should follow
+
+Be transparent in the UI.
+
+Instead of hiding it in food price, show something like:
+
+Item total: ₹100
+
+Convenience fee: ₹2
+
+Total: ₹102
+
+Students usually accept this.
+
+9. Your plan overall
+
+For your canteen app:
+
+Use test mode now
+
+Build payment flow
+
+Later create Razorpay account for the canteen owner
+
+Replace API keys
+
+Everything continues working
+
+No major rebuild needed.

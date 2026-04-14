@@ -33,6 +33,15 @@
         <input type="password" name="password" class="form-control rounded-3" placeholder="Password" required>
       </div>
 
+      <div class="mb-3">
+        <label class="form-label">Pickup Side *</label>
+        <select name="pickupSide" class="form-control rounded-3" required>
+          <option value="">Select your pickup side</option>
+          <option value="Boys Side">🔵 Boys Side</option>
+          <option value="Girls Side">🌸 Girls Side</option>
+        </select>
+      </div>
+
       <button type="submit" class="btn w-100 rounded-3 text-white fw-bold"
         style="background:#ff6a00;">
         Sign Up
@@ -62,6 +71,9 @@
     const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
+    const pickupSide = form.pickupSide.value;
+
+    showLoading("Creating your account...");
 
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
@@ -71,16 +83,27 @@
         name: name,
         email: email,
         role: "student",
+        pickupSide: pickupSide,
         createdAt: Date.now()
       });
 
       window.location.href = "student.html";
 
     } catch (error) {
+      hideLoading();
       alert(error.message);
     }
   });
 </script>
+<script src="loadingHelper.js"></script>
+
+<!-- GLOBAL LOADING OVERLAY -->
+<div id="loadingOverlay" class="loading-overlay d-none">
+  <div class="spinner-container">
+    <div class="spinner"></div>
+    <p class="loading-text">Processing your request...</p>
+  </div>
+</div>
 
 </body>
 </html>

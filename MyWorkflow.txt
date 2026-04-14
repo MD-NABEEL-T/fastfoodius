@@ -1,0 +1,54 @@
+Student selects items
+        ↓
+Frontend sends cart → backend
+        ↓
+Backend creates Razorpay order
+        ↓
+Razorpay checkout opens
+        ↓
+Student pays
+        ↓
+Frontend sends payment signature
+        ↓
+Backend verifies payment
+        ↓
+Stock deducted (atomic)
+        ↓
+Token generated
+        ↓
+Order stored in Firebase
+        ↓
+Staff dashboard receives order realtime
+
+
+4️⃣ Feature Order (VERY IMPORTANT)
+
+This is the correct implementation order for your project.
+
+Do not randomize.
+
+Phase 3 — Student UX
+
+1️⃣ Fix My Orders UI
+2️⃣ Global search across categories
+3️⃣ Out-of-stock UI
+4️⃣ Loading spinner
+5️⃣ Responsive mobile layout
+
+Phase 4 — Order Tracking
+
+6️⃣ Show ordered items inside My Orders
+7️⃣ Real-time status update
+8️⃣ Order history persistence
+
+Phase 5 — Staff Improvements
+
+9️⃣ Token search
+🔟 Menu management
+1️⃣ Low stock alerts
+
+Phase 6 — Production Safety
+
+2️⃣ Daily token reset
+3️⃣ Payment refund if stock fails
+4️⃣ Backend role security

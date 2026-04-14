@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>No Internet — Fast & Foodious</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #ff6a00, #ffd200);
+      color: #111;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .box {
+      background: white;
+      padding: 30px;
+      border-radius: 16px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      max-width: 320px;
+    }
+
+    h2 {
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #666;
+      font-size: 14px;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      background: #ff6a00;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #e85c00;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="box">
+    <h2>📡 You're Offline</h2>
+    <p>Please check your internet connection and try again.</p>
+<button onclick="goBack()">Retry</button>
+ </div>
+<script>
+  function goBack() {
+    if (navigator.onLine) {
+      const lastPage = localStorage.getItem("lastPage") || "index.html";
+      window.location.href = lastPage;
+    } else {
+      alert("Still offline bro 😅");
+    }
+  }
+</script> 
+<script>
+  window.addEventListener("online", () => {
+    const lastPage = localStorage.getItem("lastPage") || "index.html";
+    window.location.href = lastPage;
+  });
+</script>
+</body>
+</html>

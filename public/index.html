@@ -1,17 +1,16 @@
-//index.html
+<!-- index.html -->
 <!doctype html>
 <html lang="en">
 
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Fast & Foodious — Break the Queue</title>
-
+<title> Fast & Foodious </title>
+<link rel="icon" type="image/x-icon" href="./favicon.ico">
   <!-- nice rounded font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700;800&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="./style.css">
-  <link rel="icon" href="favicon_32.png">
 </head>
 
 <body>
@@ -84,6 +83,23 @@
       }
     });
   </script>
+  <script>
+  function checkInternet() {
+if (!navigator.onLine) {
+  localStorage.setItem("lastPage", window.location.href);
+  window.location.href = "offline.html";
+}
+  }
+
+  // Run on load
+  checkInternet();
+
+  // Listen for connection loss
+window.addEventListener("offline", () => {
+  localStorage.setItem("lastPage", window.location.href);
+  window.location.href = "offline.html";
+});
+</script>
 </body>
 
 </html>

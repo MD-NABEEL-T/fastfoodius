@@ -1,0 +1,18 @@
+FEATURE REQUEST:
+
+Feature name: <feature>
+
+Goal: <what the feature should do>
+
+Current behaviour: <how the system works now>
+
+Expected behaviour: <how it should work>
+
+Constraints:
+
+* do not break existing payment system
+* do not change backend unless necessary
+
+Files involved: <list files if known>
+
+Please implement step-by-step.
