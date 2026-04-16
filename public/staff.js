@@ -17,13 +17,46 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const statusText = document.getElementById("shopStatusText");
 
-// UPDATE BUTTON UI BASED ON SHOP STATE
+// ✅ CALCULATE EFFECTIVE SHOP STATUS (same logic as student.js)
+function getEffectiveShopStatus(data) {
+  // Start with manual state
+  let shopOpen = data.isOpen || false;
+  
+  // Check if current time is within opening hours
+  let shouldBeOpenByTime = true;  // Default: assume open
+  
+  if (data.openTime && data.closeTime) {
+    const now = new Date();
+    const currentTime = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+    
+    // Check if current time is within opening hours
+    shouldBeOpenByTime = (currentTime >= data.openTime && currentTime <= data.closeTime);
+  }
+  
+  // Check if manual toggle is recent (within 60-minute grace period)
+  const lastToggleTime = data.lastToggleTime || 0;
+  const timeSinceToggle = Date.now() - lastToggleTime;
+  const GRACE_PERIOD = 60 * 60 * 1000;  // 60 minutes
+  const isRecentManualChange = timeSinceToggle < GRACE_PERIOD;
+  
+  // LOGIC: If no recent manual override, use time-based logic
+  if (!isRecentManualChange) {
+    shopOpen = shouldBeOpenByTime;
+  }
+  // else: Respect the manual override
+  
+  return shopOpen;
+}
+
+// UPDATE BUTTON UI BASED ON EFFECTIVE SHOP STATUS
 async function updateToggleButton() {
   const snap = await get(shopRef);
   if (!snap.exists()) return;
   
   const data = snap.val();
-  if (data.isOpen) {
+  const effectiveStatus = getEffectiveShopStatus(data);
+  
+  if (effectiveStatus) {
     toggleShopBtn.textContent = "🟢 Shop Open";
     toggleShopBtn.classList.remove("btn-danger");
     toggleShopBtn.classList.add("btn-success");
@@ -37,10 +70,15 @@ async function updateToggleButton() {
 // TOGGLE SHOP STATE
 toggleShopBtn.addEventListener("click", async () => {
   const snap = await get(shopRef);
-  const currentState = snap.exists() ? snap.val().isOpen : true;
-  const newState = !currentState;
+  const currentData = snap.exists() ? snap.val() : {};
+  
+  // Calculate current effective state
+  const currentEffectiveState = snap.exists() ? getEffectiveShopStatus(currentData) : true;
+  
+  // Toggle the effective state
+  const newState = !currentEffectiveState;
 
-  // Update Firebase with toggle timestamp
+  // Update Firebase with toggle timestamp (this gives 60-min grace period for manual override)
   await update(shopRef, {
     isOpen: newState,
     closesAt: null,
@@ -63,6 +101,13 @@ toggleShopBtn.addEventListener("click", async () => {
 onValue(shopRef, async () => {
   await updateToggleButton();
 });
+
+// ✅ AUTO-SYNC BUTTON EVERY 30 SECONDS
+// This ensures staff page auto-updates button state based on time logic
+// even if page stays open and Firebase updates don't trigger
+setInterval(async () => {
+  await updateToggleButton();
+}, 30 * 1000);  // 30 seconds
 
 // Save daily timings
 saveTimingsBtn.addEventListener("click", async () => {

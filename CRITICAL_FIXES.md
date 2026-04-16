@@ -300,7 +300,7 @@ app.get("/api/config", (req, res) => {
 ```javascript
 let CONFIG = {};
 (async () => {
-  const res = await fetch("http://localhost:5000/api/config");
+  const res = await fetch("https://fastfoodius.onrender.com/api/config");
   CONFIG = await res.json();
   // Use CONFIG.platformFee instead of hardcoded 2
 })();

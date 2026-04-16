@@ -505,7 +505,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const userSnap = await get(ref(db, "users/" + user.uid));
       const pickupSide = userSnap.exists() ? userSnap.val().pickupSide : "Boys Side";
 
-      const response = await fetch("http://localhost:5000/api/create-order", {
+      const response = await fetch("https://fastfoodius.onrender.com/api/create-order", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -538,105 +538,99 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log(`   Razorpay Amount (paise): ${data.razorpayOrder.amount}`);
         console.log(`   Order ID: ${data.razorpayOrder.id}\n`);
 
-        const options = {
-          key: "rzp_test_SN2x20qsFTP61h",
-          amount: data.razorpayOrder.amount,
-          currency: "INR",
-          name: "Fast & Foodious",
-          description: "Canteen Order Payment",
-          order_id: data.razorpayOrder.id,
+        // ✅ USE NEW UPI-FIRST CHECKOUT OPTIONS
+        const options = createRazorpayOptions(data.razorpayOrder);
+        
+        // ✅ ADD PREFERRED PAYMENT METHOD TRACKING
+        // When payment succeeds, remember the method used
+        const preferredMethod = localStorage.getItem("preferredPaymentMethod");
+        console.log(`[PAYMENT] Using preferred method: ${preferredMethod || "upi (default)"}`);
+        
+        // ✅ ADD PAYMENT SUCCESS HANDLER
+        options.handler = async function (response) {
+          console.log("✅ Payment Success:", response);
+          console.log(`Razorpay Payment ID: ${response.razorpay_payment_id}`);
           
-          handler: async function (response) {
-            console.log("✅ Payment Success:", response);
-            console.log(`Razorpay Payment ID: ${response.razorpay_payment_id}`);
+          // ✅ SAVE PREFERRED PAYMENT METHOD FOR NEXT TIME
+          const usedMethod = response.method || preferredMethod || "upi";
+          localStorage.setItem("preferredPaymentMethod", usedMethod);
+          console.log(`[PAYMENT METHOD] Saved preference: ${usedMethod}`);
 
-            try {
-              const fee = 2;
-              const payable = total + fee;
-              const auth = getAuth();
-              const user = auth.currentUser;
+          try {
+            const fee = 2;
+            const payable = total + fee;
+            const auth = getAuth();
+            const user = auth.currentUser;
 
-              const verifyRes = await fetch("http://localhost:5000/api/verify-payment", {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                  razorpay_payment_id: response.razorpay_payment_id,
-                  razorpay_order_id: response.razorpay_order_id,
-                  razorpay_signature: response.razorpay_signature,
-                  cart: orderItems,
-                  uid: user.uid,
-                  total: payable,
-                  pickupSide: pickupSide
-                })
-              });
+            const verifyRes = await fetch("https://fastfoodius.onrender.com/api/verify-payment", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json"
+              },
+              body: JSON.stringify({
+                razorpay_payment_id: response.razorpay_payment_id,
+                razorpay_order_id: response.razorpay_order_id,
+                razorpay_signature: response.razorpay_signature,
+                cart: orderItems,
+                uid: user.uid,
+                total: payable,
+                pickupSide: pickupSide
+              })
+            });
 
-              const verifyData = await verifyRes.json();
+            const verifyData = await verifyRes.json();
 
-              console.log("Verification response status:", verifyRes.status);
-              console.log("Verification response data:", verifyData);
+            console.log("Verification response status:", verifyRes.status);
+            console.log("Verification response data:", verifyData);
 
-              if (verifyData.success) {
-                console.log("✅ Payment verified! Token number:", verifyData.token);
-                hideLoading();
+            if (verifyData.success) {
+              console.log("✅ Payment verified! Token number:", verifyData.token);
+              hideLoading();
 
-                // Close modal properly
-                const modalElement = document.getElementById("paymentModal");
-                const modal = bootstrap.Modal.getInstance(modalElement);
-                if (modal) {
-                  modal.hide();
-                }
-
-                // Remove modal backdrop if lingering
-                document.querySelectorAll(".modal-backdrop").forEach(el => el.remove());
-
-                // Switch to My Orders tab after payment
-                menuTab.classList.remove("active");
-                ordersTab.classList.add("active");
-
-                menuSection.classList.add("d-none");
-                ordersSection.classList.remove("d-none");
-
-                // Reload orders to show new order
-                loadMyOrders();
-              } else {
-                hideLoading();
-                confirmOrder.disabled = false;
-                confirmOrder.textContent = "Confirm & Pay";
-                alert("Payment verification failed. Please try again.");
-                console.error("Verification failed:", verifyData.error);
+              // Close modal properly
+              const modalElement = document.getElementById("paymentModal");
+              const modal = bootstrap.Modal.getInstance(modalElement);
+              if (modal) {
+                modal.hide();
               }
 
-            } catch (err) {
+              // Remove modal backdrop if lingering
+              document.querySelectorAll(".modal-backdrop").forEach(el => el.remove());
+
+              // Switch to My Orders tab after payment
+              menuTab.classList.remove("active");
+              ordersTab.classList.add("active");
+
+              menuSection.classList.add("d-none");
+              ordersSection.classList.remove("d-none");
+
+              // Reload orders to show new order
+              loadMyOrders();
+            } else {
               hideLoading();
               confirmOrder.disabled = false;
               confirmOrder.textContent = "Confirm & Pay";
-              alert("An error occurred while verifying your payment. Please try again.");
-              console.error("Payment verification error:", err);
+              alert("Payment verification failed. Please try again.");
+              console.error("Verification failed:", verifyData.error);
             }
-          },
 
-          modal: {
-            ondismiss: function() {
-              console.log("❌ Payment cancelled by user");
-              hideLoading();
-              confirmOrder.disabled = false;
-              confirmOrder.textContent = "Confirm & Pay";
-              alert("Payment cancelled. Your cart is still saved. Please try again when ready.");
-            }
-          },
-
-          theme: {
-            color: "#3399cc"
-          },
-
-          method: {
-            upi: true,
-            card: true,
-            netbanking: false,
-            wallet: false,
-            emi: false
+          } catch (err) {
+            hideLoading();
+            confirmOrder.disabled = false;
+            confirmOrder.textContent = "Confirm & Pay";
+            alert("An error occurred while verifying your payment. Please try again.");
+            console.error("Payment verification error:", err);
+          }
+        };
+        
+        // ✅ ADD PAYMENT CANCELLATION HANDLER
+        options.modal = {
+          ondismiss: function() {
+            console.log("❌ Payment cancelled by user");
+            hideLoading();
+            confirmOrder.disabled = false;
+            confirmOrder.textContent = "Confirm & Pay";
+            alert("Payment cancelled. Your cart is still saved. Please try again when ready.");
           }
         };
 
@@ -661,6 +655,51 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
   });
+
+  // ✅ CREATE RAZORPAY OPTIONS WITH UPI-FIRST PRIORITIZATION
+  function createRazorpayOptions(razorpayOrder) {
+    // Check if user has a preferred payment method
+    const preferredMethod = localStorage.getItem("preferredPaymentMethod");
+    
+    // Determine payment methods to show (UPI-first for better mobile experience)
+    const paymentMethods = {
+      upi: true,
+      card: false,        // Disable cards for cleaner UPI-first experience
+      netbanking: false,
+      wallet: false,
+      emi: false
+    };
+    
+    // If no preferred method or preferred is UPI, keep UPI-only
+    // Otherwise, enable card as fallback option
+    if (preferredMethod && preferredMethod !== "upi") {
+      paymentMethods.card = true;  // Enable card as fallback
+    }
+    
+    const options = {
+      key: "rzp_test_SN2x20qsFTP61h",
+      amount: razorpayOrder.amount,
+      currency: "INR",
+      name: "Fast & Foodious",
+      description: "Canteen Order Payment",
+      order_id: razorpayOrder.id,
+      
+      theme: {
+        color: "#ff6a00"  // Fast & Foodious orange branding
+      },
+
+      // ✅ UPI-FIRST PAYMENT METHODS
+      // Prioritize UPI for better mobile experience
+      // Gracefully fall back to other methods if UPI unavailable
+      method: paymentMethods,
+      
+      // ✅ OPTIMIZE FOR MOBILE UX
+      // Open directly to UPI without extra interactions
+      display: "page"  // Full page checkout for mobile clarity
+    };
+    
+    return options;
+  }
 
   const menuTab = document.getElementById("menuTab");
   const ordersTab = document.getElementById("ordersTab");

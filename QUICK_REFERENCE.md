@@ -117,7 +117,7 @@ const options = {
 };
 
 // ✅ Should come from backend:
-const { razorpayKey } = await fetch("/api/config");
+const { razorpayKey } = await fetch("https://fastfoodius.onrender.com/api/config");
 ```
 
 ---
