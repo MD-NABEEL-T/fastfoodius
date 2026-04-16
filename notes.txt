@@ -5,6 +5,7 @@ then the staff directly
 
 https://fastfoodius.onrender.com
 
+lets check if this works if not then we could git back .
 DEPLOYED NOW JUST CONNECT THE FRONTENT AND BACKEND THAT IS ALL.
 any other important features that we should implement for our canteen any other things tel me everything or shoudl we just deploy it and test it 
 so if this app works out we will probably ask the owner to give the platform fee and we could earn a good amount from it .

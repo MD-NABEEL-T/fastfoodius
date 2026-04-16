@@ -16,7 +16,47 @@ import {
   equalTo
 } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-database.js";
 
+// ============================================
+// 📱 DEVICE DETECTION UTILITIES
+// ============================================
+function isMobileDevice() {
+  // Check user agent for mobile indicators
+  const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+  
+  // Mobile device patterns
+  const mobilePatterns = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
+  
+  if (mobilePatterns.test(userAgent)) {
+    return true;
+  }
+  
+  // Fallback: Check viewport width (max-width for mobile: 768px)
+  if (window.innerWidth <= 768) {
+    // Additional check: if orientation is portrait and narrow, likely mobile
+    return window.innerHeight > window.innerWidth;
+  }
+  
+  // Check for touch capability (strong indicator of mobile)
+  const hasTouch = () => {
+    return (
+      (window.matchMedia("(hover: none)").matches) || // No hover = touch device
+      (typeof window.ontouchstart !== 'undefined') || // Touch events supported
+      (navigator.maxTouchPoints > 0) // Touch points available
+    );
+  };
+  
+  return hasTouch();
+}
+
+function isUPICapableDevice() {
+  // UPI Intent works on Android/iOS with installed UPI apps
+  const userAgent = navigator.userAgent.toLowerCase();
+  return /android|iphone|ipad|ipod/.test(userAgent);
+}
+
+// ============================================
 // SHOP STATUS TRACKING
+// ============================================
 let isShopOpen = true;
 
 const shopRef = ref(db, "shopStatus");
@@ -633,6 +673,47 @@ document.addEventListener("DOMContentLoaded", () => {
             alert("Payment cancelled. Your cart is still saved. Please try again when ready.");
           }
         };
+        
+        // ✅ ERROR HANDLER FOR PAYMENT FAILURES
+        // Handles UPI Intent failures and other payment errors
+        options.error = function(response) {
+          console.error("❌ Payment error:", response);
+          hideLoading();
+          confirmOrder.disabled = false;
+          confirmOrder.textContent = "Confirm & Pay";
+          
+          // Log UPI Intent specific failures
+          if (isMobileDevice() && isUPICapableDevice()) {
+            console.warn("[UPI INTENT] UPI app flow failed or unavailable");
+          }
+          
+          // Show user-friendly error message
+          let errorMsg = "Payment failed. Please try again.";
+          if (response && response.code) {
+            if (response.code === "RAZORPAY_CHECKOUT_CLOSED") {
+              errorMsg = "Payment window closed. Please try again.";
+            } else if (response.code === "RAZORPAY_NETWORK_ERROR") {
+              errorMsg = "Network error. Please check your connection and try again.";
+            }
+          }
+          alert(errorMsg);
+        };
+        
+        // ✅ LOG RAZORPAY INITIALIZATION
+        console.log("[RAZORPAY] Opening checkout");
+        if (isMobileDevice() && isUPICapableDevice()) {
+          console.log("📱 [UPI INTENT] Mobile device detected - UPI Intent flow will activate");
+          console.log("📱 [UPI INTENT] Razorpay will open installed UPI apps:");
+          console.log("   • Google Pay");
+          console.log("   • PhonePe");
+          console.log("   • BHIM");
+          console.log("   • WhatsApp Pay");
+          console.log("   • Other installed UPI apps");
+        } else if (isMobileDevice()) {
+          console.log("📱 [MOBILE] Mobile checkout - web-based UPI or cards");
+        } else {
+          console.log("🖥️ [DESKTOP] Desktop checkout - all payment methods available");
+        }
 
         const rzp = new Razorpay(options);
         rzp.open();
@@ -658,24 +739,78 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ✅ CREATE RAZORPAY OPTIONS WITH UPI-FIRST PRIORITIZATION
   function createRazorpayOptions(razorpayOrder) {
-    // Check if user has a preferred payment method
     const preferredMethod = localStorage.getItem("preferredPaymentMethod");
+    const isMobile = isMobileDevice();
+    const isUPICapable = isUPICapableDevice();
     
-    // Determine payment methods to show (UPI-first for better mobile experience)
-    const paymentMethods = {
-      upi: true,
-      card: false,        // Disable cards for cleaner UPI-first experience
-      netbanking: false,
-      wallet: false,
-      emi: false
-    };
+    console.log(`[RAZORPAY DEBUG] Mobile: ${isMobile}, UPI Capable: ${isUPICapable}, Preferred: ${preferredMethod}`);
     
-    // If no preferred method or preferred is UPI, keep UPI-only
-    // Otherwise, enable card as fallback option
-    if (preferredMethod && preferredMethod !== "upi") {
-      paymentMethods.card = true;  // Enable card as fallback
+    // ============================================
+    // 🚀 MOBILE UPI INTENT FLOW CONFIGURATION
+    // ============================================
+    // On mobile with UPI capability:
+    // - Prioritize UPI to trigger Native Intent on Android/iOS
+    // - Razorpay will open installed UPI apps (Google Pay, PhonePe, etc)
+    // - Fallback: if no UPI apps, show web-based UPI or other methods
+    // 
+    // On desktop:
+    // - Show full checkout with all payment options
+    // - User can select preferred method from UI
+    // ============================================
+    
+    let paymentMethods = {};
+    let displayMode = "page";  // Default: full page checkout
+    
+    if (isMobile && isUPICapable) {
+      // 📱 MOBILE UPI INTENT FLOW
+      // UPI Intent will automatically open installed payment apps
+      paymentMethods = {
+        upi: true,        // ✅ Primary: Native UPI Intent
+        card: false,      // Disable for cleaner flow
+        netbanking: false,
+        wallet: false,
+        emi: false
+      };
+      
+      // Setting display to "page" ensures the mobile browser handles UPI correctly
+      displayMode = "page";
+      
+      console.log("[RAZORPAY] Mobile UPI Intent mode enabled - will open UPI apps directly");
+      
+    } else if (isMobile && !isUPICapable) {
+      // 📱 MOBILE (Non-UPI capable fallback - unlikely but safe)
+      // Show primary UPI, with card as secondary option
+      paymentMethods = {
+        upi: true,
+        card: true,       // Fallback to card on non-capable devices
+        netbanking: false,
+        wallet: false,
+        emi: false
+      };
+      displayMode = "page";
+      
+    } else {
+      // 🖥️ DESKTOP CHECKOUT
+      // Full checkout with UPI-first, but other options available
+      paymentMethods = {
+        upi: true,
+        card: true,       // User can select from UI
+        netbanking: true,
+        wallet: false,
+        emi: false
+      };
+      
+      // If user has preferred non-UPI method from before, allow them to see it
+      if (preferredMethod && preferredMethod !== "upi") {
+        // Keep all methods visible on desktop
+      }
+      
+      displayMode = "page";  // Full page checkout on desktop
     }
     
+    // ============================================
+    // RAZORPAY OPTIONS OBJECT
+    // ============================================
     const options = {
       key: "rzp_test_SN2x20qsFTP61h",
       amount: razorpayOrder.amount,
@@ -687,16 +822,32 @@ document.addEventListener("DOMContentLoaded", () => {
       theme: {
         color: "#ff6a00"  // Fast & Foodious orange branding
       },
-
-      // ✅ UPI-FIRST PAYMENT METHODS
-      // Prioritize UPI for better mobile experience
-      // Gracefully fall back to other methods if UPI unavailable
+      
+      // Method configuration
       method: paymentMethods,
       
-      // ✅ OPTIMIZE FOR MOBILE UX
-      // Open directly to UPI without extra interactions
-      display: "page"  // Full page checkout for mobile clarity
+      // Display mode
+      display: displayMode,
+      
+      // ✅ UPI INTENT OPTIMIZATION FOR MOBILE
+      // On mobile, Razorpay automatically detects and opens:
+      // - Google Pay
+      // - PhonePe
+      // - BHIM
+      // - WhatsApp Pay
+      // - Other installed UPI apps
+      // 
+      // No manual deep linking needed - Razorpay handles it!
+      upiIntent: isMobile && isUPICapable  // Enable UPI Intent on capable devices
     };
+    
+    console.log("[RAZORPAY] Options configured:", {
+      mobile: isMobile,
+      upiCapable: isUPICapable,
+      methods: paymentMethods,
+      display: displayMode,
+      upiIntent: options.upiIntent
+    });
     
     return options;
   }
