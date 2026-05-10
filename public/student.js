@@ -590,6 +590,8 @@ document.addEventListener("DOMContentLoaded", () => {
         options.handler = async function (response) {
           console.log("✅ Payment Success:", response);
           console.log(`Razorpay Payment ID: ${response.razorpay_payment_id}`);
+          console.log(`Razorpay Order ID: ${response.razorpay_order_id}`);
+          console.log(`[PAYMENT STATE] Success handler called - clearing loading state`);
           
           // ✅ SAVE PREFERRED PAYMENT METHOD FOR NEXT TIME
           const usedMethod = response.method || preferredMethod || "upi";
@@ -602,6 +604,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const auth = getAuth();
             const user = auth.currentUser;
 
+            console.log(`[VERIFICATION] Sending payment verification to backend...`);
             const verifyRes = await fetch("https://fastfoodius.onrender.com/api/verify-payment", {
               method: "POST",
               headers: {
@@ -626,6 +629,11 @@ document.addEventListener("DOMContentLoaded", () => {
             if (verifyData.success) {
               console.log("✅ Payment verified! Token number:", verifyData.token);
               hideLoading();
+              
+              // ✅ RESET BUTTON STATE - CRITICAL FOR ALLOWING RETRIES
+              confirmOrder.disabled = false;
+              confirmOrder.textContent = "Confirm & Pay";
+              console.log(`[PAYMENT STATE] Button reset - user can retry if needed`);
 
               // Close modal properly
               const modalElement = document.getElementById("paymentModal");
@@ -646,20 +654,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
               // Reload orders to show new order
               loadMyOrders();
+              
+              console.log(`✅ [PAYMENT COMPLETE] Order placed successfully!`);
             } else {
+              console.error("Verification failed:", verifyData.error);
               hideLoading();
+              // ✅ RESET BUTTON STATE FOR RETRY
               confirmOrder.disabled = false;
               confirmOrder.textContent = "Confirm & Pay";
+              console.log(`[PAYMENT STATE] Verification failed - button reset for retry`);
               alert("Payment verification failed. Please try again.");
-              console.error("Verification failed:", verifyData.error);
             }
 
           } catch (err) {
+            console.error("Payment verification error:", err);
             hideLoading();
+            // ✅ RESET BUTTON STATE FOR RETRY
             confirmOrder.disabled = false;
             confirmOrder.textContent = "Confirm & Pay";
+            console.log(`[PAYMENT STATE] Verification error - button reset for retry`);
             alert("An error occurred while verifying your payment. Please try again.");
-            console.error("Payment verification error:", err);
           }
         };
         
@@ -667,9 +681,12 @@ document.addEventListener("DOMContentLoaded", () => {
         options.modal = {
           ondismiss: function() {
             console.log("❌ Payment cancelled by user");
+            console.log(`[PAYMENT STATE] Modal dismissed - clearing loading and resetting button`);
             hideLoading();
+            // ✅ RESET BUTTON STATE FOR RETRY
             confirmOrder.disabled = false;
             confirmOrder.textContent = "Confirm & Pay";
+            console.log(`[PAYMENT STATE] Button reset - user can try payment again`);
             alert("Payment cancelled. Your cart is still saved. Please try again when ready.");
           }
         };
@@ -678,9 +695,12 @@ document.addEventListener("DOMContentLoaded", () => {
         // Handles UPI Intent failures and other payment errors
         options.error = function(response) {
           console.error("❌ Payment error:", response);
+          console.log(`[PAYMENT STATE] Error handler called - clearing loading and resetting button`);
           hideLoading();
+          // ✅ RESET BUTTON STATE FOR RETRY
           confirmOrder.disabled = false;
           confirmOrder.textContent = "Confirm & Pay";
+          console.log(`[PAYMENT STATE] Button reset - user can try payment again`);
           
           // Log UPI Intent specific failures
           if (isMobileDevice() && isUPICapableDevice()) {
@@ -701,6 +721,10 @@ document.addEventListener("DOMContentLoaded", () => {
         
         // ✅ LOG RAZORPAY INITIALIZATION
         console.log("[RAZORPAY] Opening checkout");
+        console.log(`[RAZORPAY] Order ID: ${data.razorpayOrder.id}`);
+        console.log(`[RAZORPAY] Amount: ₹${data.finalAmount} (${data.razorpayOrder.amount} paise)`);
+        console.log(`[TIMING] Payment flow started: ${new Date().toLocaleTimeString()}`);
+        
         if (isMobileDevice() && isUPICapableDevice()) {
           console.log("📱 [UPI INTENT] Mobile device detected - UPI Intent flow will activate");
           console.log("📱 [UPI INTENT] Razorpay will open installed UPI apps:");
@@ -716,7 +740,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         const rzp = new Razorpay(options);
+        console.log(`[RAZORPAY] Razorpay instance created and opening...`);
         rzp.open();
+        console.log(`[TIMING] Razorpay checkout opened: ${new Date().toLocaleTimeString()}`);
 
       }
       else {
@@ -761,33 +787,27 @@ document.addEventListener("DOMContentLoaded", () => {
     let paymentMethods = {};
     let displayMode = "page";  // Default: full page checkout
     
-    if (isMobile && isUPICapable) {
-      // 📱 MOBILE UPI INTENT FLOW
-      // UPI Intent will automatically open installed payment apps
+    if (isMobile) {
+      // 📱 MOBILE UPI ONLY FLOW
+      // Mobile devices support UPI payments only
+      // - UPI Intent on capable devices (Android/iOS with UPI apps)
+      // - Web-based UPI fallback on other mobile devices
       paymentMethods = {
-        upi: true,        // ✅ Primary: Native UPI Intent
-        card: false,      // Disable for cleaner flow
-        netbanking: false,
-        wallet: false,
+        upi: true,        // ✅ Only UPI payments allowed on mobile
+        card: false,      // ❌ Disabled on mobile
+        netbanking: false,// ❌ Disabled on mobile
+        wallet: false,    // ❌ Disabled on mobile
         emi: false
       };
       
       // Setting display to "page" ensures the mobile browser handles UPI correctly
       displayMode = "page";
       
-      console.log("[RAZORPAY] Mobile UPI Intent mode enabled - will open UPI apps directly");
-      
-    } else if (isMobile && !isUPICapable) {
-      // 📱 MOBILE (Non-UPI capable fallback - unlikely but safe)
-      // Show primary UPI, with card as secondary option
-      paymentMethods = {
-        upi: true,
-        card: true,       // Fallback to card on non-capable devices
-        netbanking: false,
-        wallet: false,
-        emi: false
-      };
-      displayMode = "page";
+      if (isUPICapable) {
+        console.log("[RAZORPAY] Mobile UPI Intent mode enabled - will open UPI apps directly");
+      } else {
+        console.log("[RAZORPAY] Mobile web-based UPI mode enabled");
+      }
       
     } else {
       // 🖥️ DESKTOP CHECKOUT
@@ -806,13 +826,15 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       
       displayMode = "page";  // Full page checkout on desktop
+      
+      console.log("[RAZORPAY] Desktop checkout enabled - all payment methods available");
     }
     
     // ============================================
     // RAZORPAY OPTIONS OBJECT
     // ============================================
     const options = {
-      key: "rzp_test_SN2x20qsFTP61h",
+      key: "rzp_live_SnjJnMaCASmvUG",
       amount: razorpayOrder.amount,
       currency: "INR",
       name: "Fast & Foodious",
@@ -846,7 +868,8 @@ document.addEventListener("DOMContentLoaded", () => {
       upiCapable: isUPICapable,
       methods: paymentMethods,
       display: displayMode,
-      upiIntent: options.upiIntent
+      upiIntent: options.upiIntent,
+      enforceUPIOnMobile: isMobile ? "✅ UPI ONLY" : "Full checkout"
     });
     
     return options;
