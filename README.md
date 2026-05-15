@@ -2,6 +2,8 @@
 
 Fast & Foodious is a realtime, token-based canteen ordering web application that allows students to place food orders, make payments (Cash / UPI), and staff to manage and verify them live without page refreshes.
 
+Firebase account:mdnabeel4626.tmn@gmail.com
+
 🚀 Tech Live Demo
 
 Home page
